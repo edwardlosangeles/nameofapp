@@ -1,7 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hey I'm Ed. I am taking a web development course. I like hamburgers.
 
 Things you may want to cover:
 
