@@ -2,27 +2,88 @@
 <html>
   <head>
     <title>Nameofapp</title>
+
+    <!-- bootstrap should be applied before any custom css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- must come after javascript since bootstrap depends on jQuery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- for  mobile phones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  	<nav>
-  		<ul>
-  			<li>Home</li>
-  			<li>About</li>
-  			<li>Contact</li>
-  		</ul>
-  	</nav>
 
-    <%= yield %>
+    <div class="page-wrap"> <!-- sticky-footer -->
+      <!-- navigation bar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="container-fluid">
 
-    <footer>
-    	&copy; 2017 Bike Berlin
+          <!-- navbar for smaller screens -->
+          <nav class="navbar-header-sm">
+
+            <!-- menu button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <!-- home button -->
+            <a class="homeButton navbar-brand" href="../static_pages/index">
+              <%= image_tag("misc/home_logo.png", alt:"Brand") %>
+            </a>
+
+          </nav> <!-- END navbar-header-sm -->
+
+          <nav class="navbar-collapse collapse">
+
+            <!-- navbar links -->
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../static_pages/index">HOME</a></li>
+              <li><a href="../static_pages/about">ABOUT</a></li>
+              <li><a href="../static_pages/contact">CONTACT</a></li>
+
+              <!-- add remaining links here -->
+
+            </ul>
+          </nav> <!-- END navbar-collapse -->
+          
+        </nav> <!-- END container-fluid -->
+      </nav> <!-- END navbar -->
+
+
+
+
+
+
+      <!-- content from each page goes here -->
+      <%= yield %>
+
+
+
+
+
+
+
+    </div> <!-- END page-wrap -->
+    
+    <!-- footer -->
+    <footer class="container-fluid site-footer"> <!-- sticky footer -->
+     &copy; 2017 Bike Berlin
     </footer>
+
+
 
   </body>
 </html>
