@@ -23,7 +23,7 @@
   <body>
 
 
-    <div class="page-wrap"> <!-- sticky-footer -->
+   
       <!-- navigation bar -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <nav class="container-fluid">
@@ -70,19 +70,36 @@
       <!-- content from each page goes here -->
       <%= yield %>
 
-
-
-
-
-
-
-    </div> <!-- END page-wrap -->
     
-    <!-- footer -->
+    <!-- sticky footer -->
+    <!-- NOTE: generating a scaffold messed up original sticky footer -->
+    <!-- made the following modifications
+          only difference after modifications is sticky footer now always shown: -->
+    <!-- 1. removed this div that encapsulated most of body (sans <footer>) 
+          <div class="page-wrap"> -->
+    <!-- 2. moved margin: 0; from *{} to body selector -->
+    <!-- 3. removed height: 100%; from body selector-->
+    <!-- 4. added the following to .site-footer:
+          bottom: 0; position: fixed; width: 100% height: 50px; -->
+    <!-- 5. removed the following 3:
+          .page-wrap {
+            min-height: 100%;
+            margin-bottom: -50px;
+          }
+          .page-wrap:after {
+            content: "";
+            display: block;
+          }
+          .site-footer, .page-wrap:after{
+            height: 50px;
+          } -->
+    <!-- 6. added footer-anchor div and class with height: 50px 
+          this ensures that footer won't cover up body content's bottom 50px -->
+    <div class="footer-anchor"></div> <!-- sticky footer -->
     <footer class="container-fluid site-footer"> <!-- sticky footer -->
-     <div>
+     
        &copy; 2017 Bike Berlin
-     </div>
+     
     </footer>
 
 

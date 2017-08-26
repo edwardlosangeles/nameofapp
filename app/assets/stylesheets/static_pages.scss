@@ -13,12 +13,11 @@ h1 {
 }
 
 *{
-	margin: 0; //sticky-footer
 	box-sizing: border-box;
 }
 
-html, body {
-	height: 100%; //sticky-footer
+html, body {	
+	margin: 0; //sticky-footer
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -69,28 +68,17 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 //sticky-footer
-.page-wrap {
-	min-height: 100%;
-	margin-bottom: -50px;
-}
-
-//sticky-footer
-.page-wrap:after {
-	content: "";
-	display: block;
-}
-
-//sticky-footer
-.site-footer, .page-wrap:after{
-	height: 50px;
-}
-
 .site-footer {
 	background: #101010;	
 	color: #9d9d9d;
+
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	height: 50px;
 }
 
-footer div{
-	float: left;
-	margin: 4px 4px;
+//sticky-footer
+.footer-anchor {
+	height:50px;
 }
