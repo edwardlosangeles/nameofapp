@@ -3,6 +3,16 @@
 	<h1>EpicEdward</h1>
 	<h2>Adventure awaits</h2>
 
+	<!-- ED 20170915 just for 5.1, created link for featured products -->
+	<!-- had to add following in routes.rb: get 'static_pages/landing_page' -->
+	<div>
+		<%= link_to "Featured Items", static_pages_landing_page_path %>
+	</div>
+	<!-- ED 20170915 just for 5.1, created link to Sequoia Project -->
+	<div>
+		<%= link_to "Sequoia", product_path(17) %>
+	</div>
+
 	<div class="index_image">
 		<%= image_tag("index/indexImage.jpg", class: "img-responsive") %>
 	</div>

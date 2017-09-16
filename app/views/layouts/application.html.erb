@@ -39,10 +39,20 @@
               <span class="icon-bar"></span>
             </button>
 
+
+
             <!-- home button -->
-            <a class="homeButton navbar-brand" href="../static_pages/index">
-              <%= image_tag("misc/home_logo.png", alt:"Brand") %>
-            </a>
+            
+            <!-- original home button link -->
+            <!-- <a class="homeButton navbar-brand" href="../static_pages/index"> -->
+              <%#= image_tag("misc/home_logo.png", alt:"Brand") %>
+            <!-- </a> -->
+            
+            <!-- ED 20170915 just for 5.1, changed home button to be dynamic -->
+            <!-- no longer a need for homeButton class so that was removed in the stylesheet-->
+            <%= link_to image_tag("misc/home_logo.png", alt:"Brand", class: "navbar-brand"), static_pages_index_path %>
+            
+
 
           </nav> <!-- END navbar-header-sm -->
 
@@ -50,10 +60,19 @@
 
             <!-- navbar links -->
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../static_pages/index">HOME</a></li>
-              <li><a href="../static_pages/about">ABOUT</a></li>
-              <li><a href="../static_pages/contact">CONTACT</a></li>
-              <li><a href="../products">PRODUCTS</a></li>
+              
+              <!-- Original links-->
+              <!-- <li><a href="../static_pages/index">HOME</a></li> -->              
+              <!-- <li><a href="../static_pages/about">ABOUT</a></li> -->
+              <!-- <li><a href="../static_pages/contact">CONTACT</a></li> -->
+              <!-- <li><a href="../products">PRODUCTS</a></li> -->
+
+              <!-- ED 20170915 just for 5.1, updated navigation bar links to dynamic links -->
+              <!-- dynamic links -->
+              <li><%= link_to "HOME", static_pages_index_path %></li>
+              <li><%= link_to "ABOUT", static_pages_about_path %></li>
+              <li><%= link_to "CONTACT", static_pages_contact_path %></li>
+              <li><%= link_to "PRODUCTS", products_path %></li>
 
               <!-- add remaining links here -->
 

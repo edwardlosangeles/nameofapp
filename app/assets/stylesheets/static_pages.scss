@@ -24,9 +24,10 @@ html, body {
 // NAVBAR
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-.homeButton img {
-	max-height: 100%;
-}
+//ED 20170915 just for 5.1, homeButton class no longer needed
+//.homeButton img {
+//	max-height: 100%;
+//}
 
 .navbar-collapse .nav li a:hover {
 	color: white;
