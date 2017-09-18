@@ -74,6 +74,15 @@
               <li><%= link_to "CONTACT", static_pages_contact_path %></li>
               <li><%= link_to "PRODUCTS", products_path %></li>
 
+              <!-- ED 20170918 search form -->
+              <li>
+                <%= form_with(url: products_path, method: 'get') do |form| %>
+                  <%= form.label :q, 'Search for:' %>
+                  <%= form.text_field :q, id: 'q', value: params[:q] %>
+                  <%= form.submit 'Search' %>
+                <% end %>
+              </li>
+
               <!-- add remaining links here -->
 
             </ul>

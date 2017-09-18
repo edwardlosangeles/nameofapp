@@ -38,6 +38,12 @@ html, body {
 	-webkit-transition: color 800ms;
 }
 
+// ED 20170918 search form
+.navbar-collapse label{
+	color: #9d9d9d; //match color of other navbar link labels
+	font-weight:100; //for some reason, if i don't add this label will look bold
+}
+
 .anchor{
 	padding-top: 50px;
 }
