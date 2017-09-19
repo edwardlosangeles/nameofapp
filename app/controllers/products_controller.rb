@@ -4,7 +4,19 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+
+    # ED 20170918 search form
+    #original contents of index was just this one line
+    #@products = Product.all
+    
+    if params[:q]
+      search_term = params[:q]
+      #return filtered list here
+      @products = Product.search(search_term)
+    else
+      @products = Product.all
+    end    
+
   end
 
   # GET /products/1
