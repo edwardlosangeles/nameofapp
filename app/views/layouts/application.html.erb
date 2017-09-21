@@ -75,13 +75,23 @@
               <li><%= link_to "PRODUCTS", products_path %></li>
 
               <!-- ED 20170918 search form -->
+              <!-- original without bootstrap -->
+              <!-- <li> -->
+                <%#= form_with(url: products_path, method: 'get', local: true) do |form| %>
+                  <%#= form.label :q, 'Search for:' %>
+                  <%#= form.text_field :q, id: 'q', value: params[:q] %>
+                  <%#= form.submit 'Search' %>
+                <%# end %>
+              <!-- </li> -->
+              <!-- with bootstrap -->
               <li>
                 <!-- contents in search box should show up in URL -->
                 <!-- reason it wasn't is because 'local: true' missing in instructions -->
-                <%= form_with(url: products_path, method: 'get', local: true) do |form| %>
-                  <%= form.label :q, 'Search for:' %>
-                  <%= form.text_field :q, id: 'q', value: params[:q] %>
-                  <%= form.submit 'Search' %>
+                <%= form_with(url: products_path, method: 'get', local: true, class: "navbar-form navbar-right") do |form| %>
+                  <div class="form-group">
+                    <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control", placeholder: "Product Search" %>
+                  </div>
+                  <%= form.submit 'Search', class: "btn btn-default" %>
                 <% end %>
               </li>
 

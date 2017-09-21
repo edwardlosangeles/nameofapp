@@ -10,8 +10,9 @@ Rails.application.routes.draw do
 	get 'static_pages/landing_page'
 	
 	#ED 20170915 just for 5.1, I changed original root page from landing to products
-	root 'products#index'
-	#root 'static_pages#landing_page'
+	#root 'products#index'
+
+	root 'static_pages#landing_page'
 
   	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

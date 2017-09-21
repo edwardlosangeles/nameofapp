@@ -9,9 +9,12 @@ class ProductsController < ApplicationController
     #original contents of index was just this one line
     #@products = Product.all
     
+    #if there was an argument passed, then show page based on it
+    #otherwise show page with all products
     if params[:q]
       search_term = params[:q]
       #return filtered list here
+      #add search method in product model since it's not good practice run queries in controller
       @products = Product.search(search_term)
     else
       @products = Product.all

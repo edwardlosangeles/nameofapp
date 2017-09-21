@@ -11,32 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :product_name %>
+  <!-- ED 20170918 search form -->
+  <!-- originals before bootstrap -->
+  <!-- <div class="field"> -->
+    <%#= form.label :name %>
+    <%#= form.text_field :name, id: :product_name %>
+  <!-- </div> -->
+  <!-- <div class="actions"> -->
+    <%#= form.submit %>
+  <!-- </div> -->
+
+  <!-- to add a class selector -->
+  <%#= form.label :name, class: "myClass" %>
+  <!-- for id:, it can be added to styles as eg #product_name {} -->
+
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :name %></span>
+    <%= form.text_field :name, id: :product_name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :product_description %>
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :description %></span>
+    <%= form.text_area :description, id: :product_description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, id: :product_image_url %>
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :image_url %></span>
+    <%= form.text_field :image_url, id: :product_image_url, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %><br>
-    <%= form.text_field :color %>
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :color %></span>
+    <%= form.text_field :color, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :price %></span>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
+  <!-- for bootstrap button styling, class needs to be in form.submit -->
+  <!-- button name is dynamic and based on if editing or creating a new button -->
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit button_name, class: "btn btn-default" %>
   </div>
 <% end %>
