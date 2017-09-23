@@ -1,6 +1,30 @@
 <div class="container-fluid anchor">
 
-	<h1>Contact</h1>
-	<p>Los Angeles, CA</p>
+	<h1>Contact Us</h1>
+
+	<!-- 20170921 ED 5.3 Sending Emails -->
+	<%= flash[:notice] %>
+
+	<!-- for some reason pages don't render and you don't get error messages without local: true -->
+	<!--  which isn't in instructions -->
+	<%= form_with(url: "/static_pages/thank_you", local: true) do |form| %> <!-- method is post by default -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<%= form.label :name %>
+					<%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
+				</div>
+				<div class="form-group">
+					<%= form.label :email, "Email Address" %> <!-- label default will be "Email" unless explicitly stated: "Email Address" -->
+					<%= form.text_field :email, class: "form-control", placeholder: "Enter Email" %>
+				</div>
+				<div class="form-group">
+					<%= form.label :message %>
+					<%= form.text_area :message, class: "form-control", placeholder: "Enter Message" %>
+				</div>
+			</div><!-- col-md-4 -->
+		</div> <!-- row -->
+		<%= form.submit "Send" %>
+	<% end %> <!-- form_with -->
 
 </div>

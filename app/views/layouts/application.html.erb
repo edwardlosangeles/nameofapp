@@ -60,7 +60,7 @@
 
             <!-- navbar links -->
             <ul class="nav navbar-nav navbar-right">
-              
+
               <!-- Original links-->
               <!-- <li><a href="../static_pages/index">HOME</a></li> -->              
               <!-- <li><a href="../static_pages/about">ABOUT</a></li> -->
@@ -78,7 +78,7 @@
               <!-- original without bootstrap -->
               <!-- <li> -->
                 <%#= form_with(url: products_path, method: 'get', local: true) do |form| %>
-                  <%#= form.label :q, 'Search for:' %>
+                  <%#= form.label :q, 'Search for:' %> <!-- to style: .navbar-collapse label {} -->
                   <%#= form.text_field :q, id: 'q', value: params[:q] %>
                   <%#= form.submit 'Search' %>
                 <%# end %>
@@ -89,6 +89,13 @@
                 <!-- reason it wasn't is because 'local: true' missing in instructions -->
                 <%= form_with(url: products_path, method: 'get', local: true, class: "navbar-form navbar-right") do |form| %>
                   <div class="form-group">
+                    <!-- for some reason value: params[:q] can be value: params[:whatever] -->
+                    <!--  but form.text_field :q must be :q -->
+                    <!--   because index action of products controller refers to it -->
+                    <!--    if params[:q] -->
+                    <!--  form.text_field :q can be form.text_field :asdf -->
+                    <!--   but index action products controller must change the parameter -->
+                    <!--    if params[:asdf] -->
                     <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control", placeholder: "Product Search" %>
                   </div>
                   <%= form.submit 'Search', class: "btn btn-default" %>

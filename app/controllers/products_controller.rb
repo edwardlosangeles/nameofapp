@@ -15,11 +15,12 @@ class ProductsController < ApplicationController
       search_term = params[:q]
       #return filtered list here
       #add search method in product model since it's not good practice run queries in controller
+      # app/models/product.rb
       @products = Product.search(search_term)
     else
       @products = Product.all
     end    
-
+    #remember, associated view, index.html.erb, is rendered after index action finishes
   end
 
   # GET /products/1
