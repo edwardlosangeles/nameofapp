@@ -15,7 +15,8 @@ class StaticPagesController < ApplicationController
 	@message = params[:message]
 
 	# /views/user_mailer/contact_form.html.erb is the template used for email
-	UserMailer.contact_form(@email, @name, @message).deliver_now
+	# def contact_form found here: /app/mailers/user_mailer.rb
+  UserMailer.contact_form(@email, @name, @message).deliver_now
 
 	# replaced by UserMailer.contact_form
 	# ActionMailer::Base.mail(from: @email,
