@@ -1,8 +1,8 @@
 # 20170921 ED 5.3 Sending Emails
-# this file was generated manually from $ rails generate mailer UserMailer
+# this file was generated automatically from $ rails generate mailer UserMailer
 # along with test/mailers/user_mailer_test.rb
-# won't be generated if there is no test/mailers/previews
-# in which case you must create folders and files manually
+# from a test app that was created with the default test suite, ie -T omitted
+# then dragged over to this app
 
 # Preview all emails at http://localhost:3000/rails/mailers/user_mailer
 
