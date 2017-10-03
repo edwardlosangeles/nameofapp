@@ -105,13 +105,29 @@
               <!-- add remaining links here -->
 
             </ul>
+            
+            <!-- 20170929 ED 5.4 authentication -->
+            <!-- devise login logout buttons -->
+            <ul class="nav pull-right">
+              <li>
+                <% if user_signed_in? %><!-- Devise provided this helper -->
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+                <% else %>
+                  <%= link_to('Login', new_user_session_path) %>
+                <% end %>
+              </li>              
+            </ul>
+
           </nav> <!-- END navbar-collapse -->
           
         </nav> <!-- END container-fluid -->
       </nav> <!-- END navbar -->
 
 
-
+      <!-- 20170929 ED 5.4 authentication -->
+      <!-- add line(s) manually after: $ rails g devise:install -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
 
 

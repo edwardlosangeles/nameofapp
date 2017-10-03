@@ -1,5 +1,3 @@
-Rails.application.routes.draw do
-
 # eg. $ rails routes:
 #
 #                    Prefix Verb   URI Pattern                          Controller#Action
@@ -22,6 +20,24 @@ Rails.application.routes.draw do
 #                           POST   /orders(.:format)                    orders#create
 #                     order GET    /orders/:id(.:format)                orders#show
 #                           DELETE /orders/:id(.:format)                orders#destroy
+	
+
+
+	# 20170929 ED 5.4 authentication
+	# $ rails g devise users
+	Rails.application.routes.draw do
+	# default routes for signing in and out are /users/sign_in & /users/sign_out, but they can be changed
+	# eg instead http://localhost:3000/users/sign_in you can use http://localhost:3000/login
+	# http://localhost:3000/logout will not work if you enter into browser address but the address works when you click Logout button
+	# more reading: https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
+	devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+	# original
+	#devise_for :users
+	
+
+	# 20170929 ED 5.4 authentication
+	# $ rails generate scaffold user first_name last_name
+	resources :users
 
 	resources :products
 

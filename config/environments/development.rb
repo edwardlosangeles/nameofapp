@@ -31,6 +31,10 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # 20170929 ED 5.4 authentication
+  # add line(s) manually after: $ rails g devise:install
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

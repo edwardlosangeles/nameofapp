@@ -1,0 +1,32 @@
+<!-- 20170929 ED 5.4 authentication -->
+<!-- style in bootstrap: form-group, remove labels, form-control, add placeholders, col-sm-6, btn, btn-lg -->
+<!-- http://localhost:3000/login -->
+
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field form-group col-sm-6">
+    <%#= f.label :email %>
+    <!-- <br /> -->
+    <%= f.email_field :email, class: "form-control", placeholder: "Email address", autofocus: true %>
+  </div>
+
+  <div class="field form-group col-sm-6">
+    <%#= f.label :password %>
+    <!-- <br /> -->
+    <%= f.password_field :password, class: "form-control", placeholder: "Password", autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions btn btn-lg">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

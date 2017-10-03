@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Ed 20170811 add jquery
 gem 'jquery-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -60,3 +59,6 @@ group :production do
   gem 'pg'
 end
 
+# 20170929 ED 5.4 authentication
+# to install, $ bundle install, after adding the below line and saving this file
+gem 'devise'
