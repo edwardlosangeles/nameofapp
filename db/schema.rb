@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 20170930085137) do
 
   # 20170929 ED 5.4 authentication
   # $ rails db:migrate
-  # devise has added more fields
+  # created when running scaffold for users
+  # devise has also added more fields
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
