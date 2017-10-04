@@ -1,5 +1,5 @@
 <!-- 20170929 ED 5.4 authentication -->
-<!-- style in bootstrap: form-group, remove labels, form-control, add placeholders, col-sm-6, btn, btn-lg -->
+<!-- style in bootstrap: form-group, remove labels, form-control, add placeholders, col-sm-12, btn, btn-lg -->
 <!-- http://localhost:3000/sign_up -->
 
 <h2>Sign up</h2>
@@ -7,13 +7,13 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-    <div class="field form-group col-sm-6">
+    <div class="field form-group col-sm-12">
       <%#= f.label :email %>
       <br />
       <%= f.email_field :email, class: "form-control", placeholder: "Email address", autofocus: true %>
     </div>
 
-    <div class = "col-sm-6">
+    <div class = "col-sm-12">
       <div class="field form-group">
         <%#= f.label :password %>
         <% if @minimum_password_length %>
