@@ -62,3 +62,7 @@ end
 # 20170929 ED 5.4 authentication
 # to install, $ bundle install, after adding the below line and saving this file
 gem 'devise'
+
+# 20171005 ED 5.5 Authorization
+# install cancancan
+gem 'cancancan', '~> 1.10'

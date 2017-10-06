@@ -4,6 +4,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  # 20171005 ED 5.5 Authorization
+  # make sure user signed in before trying to access users_controller
+  before_action :authenticate_user!, except: [:show, :index]
+  # makes sure users are authorized to perform actions
+  # placed at the top of controller so it can be applied to all actions within
+  load_and_authorize_resource
+
   # GET /users
   # GET /users.json
   def index
