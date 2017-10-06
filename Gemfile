@@ -65,4 +65,4 @@ gem 'devise'
 
 # 20171005 ED 5.5 Authorization
 # install cancancan
-gem 'cancancan', '~> 1.10'
+gem 'cancancan', '~> 2.0'
