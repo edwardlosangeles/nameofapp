@@ -1,8 +1,9 @@
 <!-- 20170929 ED 5.4 authentication -->
 <!-- $ rails generate scaffold user first_name last_name -->
+<div class="container-fluid anchor">
+	<h1>New User</h1>
 
-<h1>New User</h1>
+	<%= render 'form', user: @user %>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', users_path %>
+	<%= link_to 'Back', users_path %>
+</div>

@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /*20171005 ED 5.5 Authorizatio
+alerts and notices by default shows up behind navbar
+ n*/
+.alert, .notice {
+	padding-top: 50px;
+}

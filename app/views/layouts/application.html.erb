@@ -126,8 +126,24 @@
 
       <!-- 20170929 ED 5.4 authentication -->
       <!-- add line(s) manually after: $ rails g devise:install -->
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <!-- <p class="notice"><%= notice %></p> -->
+      <!-- <p class="alert"><%= alert %></p> -->
+
+      <!-- 20171005 ED 5.5 Authorization -->
+      <!-- add bootstrap to alerts and notices -->
+      <% if notice %>
+        <p class="notice alert-info" role="alert"><%= notice %></p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert alert-warning" role="alert"><%= alert %></p>
+      <% end %>
+
+
+
+
+    
+
 
 
 
