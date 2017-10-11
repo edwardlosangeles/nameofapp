@@ -1,10 +1,10 @@
 <!-- 20170929 ED 5.4 authentication -->
 <!-- $ rails generate scaffold user first_name last_name -->
-<div class="container-fluid anchor">
-	<h1>Editing User</h1>
+<!-- eg http://localhost:3000/users/2/edit -->
 
-	<%= render 'form', user: @user %>
+<h1>Editing User</h1>
 
-	<%= link_to 'Show', @user %> |
-	<%= link_to 'Back', users_path %>
-</div>
+<%= render 'form', user: @user %>
+
+<%= link_to 'Show', @user %> |
+<%= link_to 'Back', users_path %>

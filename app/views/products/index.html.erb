@@ -1,19 +1,20 @@
-<div class="container-fluid anchor">
+<!-- http://localhost:3000/products/ -->
 
-  <p id="notice"><%= notice %></p>
 
-  <h1>Products</h1>
 
-  <%# replaced original table with erb %>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- automatically calls partial _product.html.erb -->
-      <%= render @products %>
-    </div>
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<%# replaced original table with erb %>
+<div class="container-fluid">
+  <div class="row">
+    <!-- automatically calls partial _product.html.erb -->
+    <%= render @products %>
   </div>
-
-  <br>
-
-  <%= link_to 'New Product', new_product_path %>
-
 </div>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
+

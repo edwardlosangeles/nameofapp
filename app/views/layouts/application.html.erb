@@ -123,34 +123,40 @@
         </nav> <!-- END container-fluid -->
       </nav> <!-- END navbar -->
 
+      
+      <div class="anchor">
+        <!-- 20170929 ED 5.4 authentication -->
+        <!-- add line(s) manually after: $ rails g devise:install -->
+        <!-- <p class="notice"><%= notice %></p> -->
+        <!-- <p class="alert"><%= alert %></p> -->
 
-      <!-- 20170929 ED 5.4 authentication -->
-      <!-- add line(s) manually after: $ rails g devise:install -->
-      <!-- <p class="notice"><%= notice %></p> -->
-      <!-- <p class="alert"><%= alert %></p> -->
+        <!-- 20171005 ED 5.5 Authorization -->
+        <!-- add bootstrap to alerts and notices -->
+        <% if notice %>
+          <p class="notice alert-info" role="alert"><%= notice %></p>
+        <% end %>
 
-      <!-- 20171005 ED 5.5 Authorization -->
-      <!-- add bootstrap to alerts and notices -->
-      <% if notice %>
-        <p class="notice alert-info" role="alert"><%= notice %></p>
-      <% end %>
-
-      <% if alert %>
-        <p class="alert alert-warning" role="alert"><%= alert %></p>
-      <% end %>
-
-
-
-
-    
+        <!-- fadeOut works if you're logged in and go to -->
+        <!-- http://localhost:3000/sign_up in the browser -->
+        <!-- or if you enter an invalid password when you try to log in -->
+        <!-- but don't know why it doesn't work if you're logged in and go to -->
+        <!-- http://localhost:3000/users -->
+        <!-- and try to edit another user -->
+        <% if alert %>
+          <p class="alert alert-warning" role="alert"><%= alert %></p>
+        <% end %>
 
 
+        <div class="container-fluid">
+
+          <!-- content from each page goes here -->
+          <%= yield %>
+
+        </div> <!-- container-fluid -->
+        
+      </div> <!-- anchor -->
 
 
-      <!-- content from each page goes here -->
-      <%= yield %>
-
-    
     <!-- sticky footer -->
     <!-- NOTE: generating a scaffold messed up original sticky footer -->
     <!-- made the following modifications
