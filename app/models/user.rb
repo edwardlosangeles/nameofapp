@@ -11,4 +11,8 @@ class User < ApplicationRecord
    	# $ rails generate scaffold user first_name last_name
    	# add relations between user and order models
 	has_many :orders
+
+	#20171005 ED 5.7 Comment Model
+	has_many :comments
+	
 end

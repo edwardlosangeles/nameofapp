@@ -1,15 +1,15 @@
 <!-- called by index to dynamically add all products to product page -->
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="product_style">
+	<div class = "thumbnail">
+	  <a href="products/<%= product.id %>"><h1><%= product.name %></h1></a>
+	  <%= image_tag(product.image_url, class: "img-responsive") %>
+	  <p class="oneline"><%= product.description %></p>
+	  <strong><%= number_to_currency(product.price, :unit => "$") %></strong>
 
-  <a href="#"><h1><%= product.name %></h1></a>
-  <%= image_tag(product.image_url, class: "img-responsive") %>
-  <p><%= product.description %></p>
-  <strong><%= number_to_currency(product.price, :unit => "$") %></strong>
-
-  <p>
-    <%= link_to 'Show', product %>
-    <%= link_to 'Edit', edit_product_path(product) %>
-    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-
+	  <p>
+	    <%= link_to 'Show', product %>
+	    <%= link_to 'Edit', edit_product_path(product) %>
+	    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+	  </p>
+	</div>
 </div>

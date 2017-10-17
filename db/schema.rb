@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930085137) do
+ActiveRecord::Schema.define(version: 20171015011816) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "body"
+    t.integer "rating"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
@@ -30,10 +41,6 @@ ActiveRecord::Schema.define(version: 20170930085137) do
     t.decimal "price", precision: 8, scale: 2
   end
 
-  # 20170929 ED 5.4 authentication
-  # $ rails db:migrate
-  # created when running scaffold for users
-  # devise has also added more fields
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
