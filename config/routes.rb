@@ -39,7 +39,14 @@
 	# $ rails generate scaffold user first_name last_name
 	resources :users
 
-	resources :products
+	# 20171017 5.8 Comments Controller & Views
+	# original:
+	# resources :products
+	resources :products do
+		resources :comments
+	end
+
+	
 
 	get 'static_pages/about'
 	get 'static_pages/contact'

@@ -37,7 +37,7 @@
 		<%= @product.description %>
 	</div>
 </div>
-<br>
+
 <div class="row">
 	<div class="col-xs-6" id="product_show">
 			<strong>Color:</strong>
@@ -51,14 +51,21 @@
 	</div>
 </div>
 
+<!-- 20171017 5.8 Comments Controller & Views -->
+<div class="row">
+	<div class="col-xs-12" id="product_show">
+		<div class="user_comment">
+			<%= render 'new_comment' %>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-xs-12" id="product_show">
 		<div class="prod_review">Product Reviews</div>
-			Highest Rating: <%#= @product.highest_rating_comment.rating %>
-			<br>
-			Lowest Rating: <%#= @product.lowest_rating_comment.rating %>
+			<%= render 'comments' %>
 	</div>
 </div>
+
 	<!-- <p> -->
 		<!-- <strong>Image url:</strong> -->
 		<%#= @product.image_url %>
