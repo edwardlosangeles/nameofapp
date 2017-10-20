@@ -14,3 +14,8 @@
 //= require turbolinks
 //= require jquery3
 //= require_tree .
+
+// 20171017 5.8 Comments Controller & Views
+// raty
+//= require jquery.raty
+

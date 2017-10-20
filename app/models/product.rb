@@ -30,8 +30,9 @@ class Product < ApplicationRecord
 		comments.rating_asc.first
 	end
 
-
-
+	#20171017 5.8 Comments Controller & Views
+	def average_rating
+		comments.average(:rating).to_f
+	end
 
 end
-
