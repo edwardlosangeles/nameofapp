@@ -66,3 +66,7 @@ gem 'devise'
 # 20171005 ED 5.5 Authorization
 # install cancancan
 gem 'cancancan', '~> 2.0'
+
+#20171022 5.9 Validation & Pagination
+#add pagination to your app
+gem 'will_paginate', '~> 3.1.0'

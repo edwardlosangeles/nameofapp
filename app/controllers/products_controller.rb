@@ -16,9 +16,21 @@ class ProductsController < ApplicationController
       #return filtered list here
       #add search method in product model since it's not good practice run queries in controller
       # app/models/product.rb
-      @products = Product.search(search_term)
+      # @products = Product.search(search_term)
+
+      #20171022 5.9 Validation & Pagination
+      #only allow 6 products per page
+      # original
+      #@products = Product.search(search_term)
+      @products = Product.search(search_term).paginate(:page => params[:page], :per_page => 6)
+
     else
-      @products = Product.all
+
+      #20171022 5.9 Validation & Pagination
+      #only allow 6 products per page
+      # original
+      #@products = Product.all
+      @products = Product.all.paginate(:page => params[:page], :per_page => 6)
     end    
     #remember, associated view, index.html.erb, is rendered after index action finishes
   end
@@ -27,7 +39,12 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     # 20171017 5.8 Comments Controller & Views
-    @comments = @product.comments.order("created_at DESC")
+    #@comments = @product.comments.order("created_at DESC")
+
+
+    #20171022 5.9 Validation & Pagination
+    #only allow 5 comments per page
+    @comments = @product.comments.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /products/new

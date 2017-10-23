@@ -76,6 +76,12 @@
 	</div>
 </div>
 
+<!-- 20171022 5.9 Validation & Pagination -->
+<!-- only allow 5 comments per page -->
+<div class="apple_pagination">
+	<%= will_paginate @comments %>
+</div>
+
 	<!-- <p> -->
 		<!-- <strong>Image url:</strong> -->
 		<%#= @product.image_url %>

@@ -4,6 +4,10 @@ class Product < ApplicationRecord
 	#20171005 ED 5.7 Comment Model
 	has_many :comments	
 
+	#20171022 5.9 Validation & Pagination
+	#Name field needs to be populated when creating a new product
+	validates :name, presence: true
+
 	# ED 20170918 search form
 	# created this for index action in products controller to call on
 	def self.search(search_term)
