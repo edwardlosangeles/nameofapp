@@ -1,6 +1,5 @@
 # 20171029 5.10 Admin Role & Moderating User Comments
 # $ rails g migration add_admin_flag_to_users admin:boolean
-# appended default: false, null: false
 
 class AddAdminFlagToUsers < ActiveRecord::Migration[5.1]
   def change
