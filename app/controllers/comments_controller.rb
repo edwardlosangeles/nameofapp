@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	# 20171029 5.10 Admin Role & Moderating User Comments
 	def destroy
 		@comment = Comment.find(params[:id])
 		product = @comment.product
