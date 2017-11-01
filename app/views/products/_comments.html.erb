@@ -17,6 +17,9 @@
 					<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>
 
+				<!-- temporary, make delete button accessible to everyone and use CanCanCan to restrict access to only admins -->
+				<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, product_comment_path(comment.product, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+
 			</p>
 			
 			<!-- raty -->
