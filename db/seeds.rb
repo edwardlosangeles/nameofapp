@@ -9,3 +9,5 @@
 
 #sample
 #Product.create(name: "Prod3", description: "created in seeds.rb", image_url: "work/zion.jpg")
+
+
