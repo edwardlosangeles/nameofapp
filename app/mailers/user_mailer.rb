@@ -3,8 +3,8 @@
 #  $ rails generate mailer UserMailer
 
 class UserMailer < ApplicationMailer
-	# this doesn't seem to be used if the sender enters a wrong email address
-	default from: "erroredwardlosangeles@gmail.com"
+	# if a sender isn't specified, then it will default to this
+	default from: "edwardlosangeles@gmail.com"
 
 	# this will be called in static_pages_controller thank_you action to replace ActionMailer
 	def contact_form(email, name, message)
@@ -13,4 +13,13 @@ class UserMailer < ApplicationMailer
 			to: 'edwardlosangeles@gmail.com',
 			subject: "A new contact form message from #{name}")
 	end
+
+	# 20171104 5.11 ED Automated Email on User Sign Up
+	def welcome(user)
+		@appname = "EpicEdward.com"
+		mail(to: user.email,
+			subject: "Welcome to #{@appname}!")
+	end
+
+
 end
