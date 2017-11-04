@@ -30,7 +30,13 @@
 	# eg instead http://localhost:3000/users/sign_in you can use http://localhost:3000/login
 	# http://localhost:3000/logout will not work if you enter into browser address but the address works when you click Logout button
 	# more reading: https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
-	devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+	
+	# 20171104 5.11 ED Automated Email on User Sign Up
+	devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
+
+	#original
+	#devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+	
 	# original
 	#devise_for :users
 	
