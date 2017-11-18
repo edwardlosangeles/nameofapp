@@ -73,3 +73,7 @@ gem 'cancancan', '~> 2.0'
 #20171022 5.9 Validation & Pagination
 #add pagination to your app
 gem 'will_paginate', '~> 3.1.0'
+
+#20171115 6.3 Functional Tests
+#to be able to run functional tests. Provides assigns and assert_template
+gem 'rails-controller-testing'
