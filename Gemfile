@@ -43,6 +43,9 @@ group :development, :test do
   #20171108 6.1 RSpec
   gem 'rspec-rails', '~> 3.6'
 
+  # 20171120 6.4 Generating Test Data
+  gem "factory_bot_rails", "~> 4.0"
+
 end
 
 group :development do
@@ -77,3 +80,4 @@ gem 'will_paginate', '~> 3.1.0'
 #20171115 6.3 Functional Tests
 #to be able to run functional tests. Provides assigns and assert_template
 gem 'rails-controller-testing'
+

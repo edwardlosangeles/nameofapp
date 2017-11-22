@@ -4,9 +4,12 @@ require 'rails_helper'
 
 describe UsersController, type: :controller do
 	
-	let(:user1) { User.create!(email: 'peter1@example.com', password: '1234567890') }
-	let(:user2) { User.create!(email: 'peter2@example.com', password: '1234567890') }
-
+	# 20171120 6.4 Generating Test Data
+	# replace original with factory
+	# let(:user1) { User.create!(email: 'test1@example.com', password: '1234567890') }
+	# let(:user2) { User.create!(email: 'test2@example.com', password: '1234567890') }
+	user1 = FactoryBot.create(:user)
+	user2 = FactoryBot.create(:user)
 
 	describe 'GET #show' do
 		
@@ -19,6 +22,8 @@ describe UsersController, type: :controller do
 				get :show, params: { id: user1.id }
 				expect(response).to be_ok
 				expect(assigns(:user)).to eq user1
+				# added the following myself, don't know if this is right
+				expect(response).to render_template('show')
 			end
 
 			it 'redirects to root_path if get show of another user' do
@@ -37,6 +42,4 @@ describe UsersController, type: :controller do
 		end
 
 	end
-
-
 end
