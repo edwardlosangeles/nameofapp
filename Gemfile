@@ -81,3 +81,5 @@ gem 'will_paginate', '~> 3.1.0'
 #to be able to run functional tests. Provides assigns and assert_template
 gem 'rails-controller-testing'
 
+# 20171124 6.5: Payment Forms with Stripe
+gem 'stripe'

@@ -32,9 +32,16 @@
 
 
 <div class="row">
-	<div class="col-xs-12" id="product_show">
+	<div class="col-xs-6" id="product_show">
 		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		<%= @product.description %>
+	</div>
+	<div class="col-xs-6" id="product_show">
+		<div class="right_col">
+			<%= form_with(url: '/payments/create') do |form| %>
+				<%= render partial: "shared/stripe_checkout_button" %>
+			<% end %>
+		</div>
 	</div>
 </div>
 

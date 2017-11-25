@@ -16,7 +16,7 @@ class Product < ApplicationRecord
 		#use Rails.env.development? to check if you're in local
 		#use Rails.env.production? to check if you're in heroku
 		if Rails.env.development?
-			#puts "we in the dev
+			#puts "we in the dev"
 			Product.where("name LIKE ?", "%#{search_term}%")
 		else
 			#puts "we in the prod"
