@@ -4,7 +4,10 @@
 	  <h1><%= link_to product.name, product %></h1>
 	  <%= image_tag(product.image_url, class: "img-responsive") %>
 	  <p class="oneline"><%= product.description %></p>
-	  <strong><%= number_to_currency(product.price, :unit => "$") %></strong>
+	  <!-- 20171124 6.5: Payment Forms with Stripe -->
+	  <!-- original -->
+	  <!-- <strong><%#= number_to_currency(product.price, :unit => "$") %></strong> -->
+	  <strong><%= number_to_currency((product.price_in_cents.to_f)/100, :unit => "$") %></strong>
 
 	  <p>
 	    <%= link_to 'Show', product %>

@@ -36,6 +36,8 @@
 		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 		<%= @product.description %>
 	</div>
+	
+	<!-- 20171124 6.5: Payment Forms with Stripe -->
 	<div class="col-xs-6" id="product_show">
 		<div class="right_col">
 			<%= form_with(url: '/payments/create') do |form| %>
@@ -43,6 +45,7 @@
 			<% end %>
 		</div>
 	</div>
+	
 </div>
 
 <div class="row">
@@ -53,7 +56,10 @@
 	<div class="col-xs-6" id="product_show">
 		<div class="right_col">
 			<strong>Price:</strong>
-			<%= number_to_currency(@product.price, :unit => "$") %>
+			<!-- 20171124 6.5: Payment Forms with Stripe -->
+			<!-- original -->
+			<!-- <%#= number_to_currency(@product.price, :unit => "$") %> -->
+			<%= number_to_currency((@product.price_in_cents.to_f)/100, :unit => "$") %>
 		</div>
 	</div>
 </div>

@@ -46,8 +46,12 @@
   </div>
 
   <div class="field input-group">
-    <span class="input-group-addon"><%= form.label :price %></span>
-    <%= form.text_field :price, class: "form-control" %>
+    <!-- 20171124 6.5: Payment Forms with Stripe -->
+    <!-- original -->
+    <!-- <span class="input-group-addon"><%#= form.label :price %></span> -->
+    <%#= form.text_field :price, class: "form-control" %>
+    <span class="input-group-addon"><%= form.label :price_in_cents %></span>
+    <%= form.text_field :price_in_cents, class: "form-control" %>
   </div>
 
   <!-- for bootstrap button styling, class needs to be in form.submit -->
