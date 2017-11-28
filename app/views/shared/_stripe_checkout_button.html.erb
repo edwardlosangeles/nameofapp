@@ -1,9 +1,11 @@
 <!-- 20171124 6.5: Payment Forms with Stripe -->
+<!-- for data-image, used a generic png from the internet -->
+<!-- and placed it in nameofapp/app/assets/images/square-image.png -->
 
 <script
   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-  data-image="../assets/images/square-image.png"
+  data-image="<%= image_path('square-image.png') %>"
   data-name="<%= @product.name %>"
   data-description="<%= @product.description %>"
   data-amount="<%= @product.price_in_cents %>">
