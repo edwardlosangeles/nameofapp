@@ -1,23 +1,9 @@
 # README
 
-Hey I'm Ed. I am taking a web development course. I like hamburgers.
+github repository:
+https://github.com/edwardlosangeles/nameofapp
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+heroku:
+app name: epicedward
+https://dashboard.heroku.com/apps/epicedward
+https://epicedward.herokuapp.com/

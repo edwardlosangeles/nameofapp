@@ -23,9 +23,10 @@
 	
 
 
-	# 20170929 ED 5.4 authentication
-	# $ rails g devise users
-	Rails.application.routes.draw do
+# 20170929 ED 5.4 authentication
+# $ rails g devise users
+Rails.application.routes.draw do
+
 	# default routes for signing in and out are /users/sign_in & /users/sign_out, but they can be changed
 	# eg instead http://localhost:3000/users/sign_in you can use http://localhost:3000/login
 	# http://localhost:3000/logout will not work if you enter into browser address but the address works when you click Logout button
@@ -70,4 +71,11 @@
 
   resources :orders, only: [:index, :show, :create, :destroy]
   
+	# 20171129 6.6: Creating Payments
+	post '/payments/create'
+
+	# 20171208 Admin Controller, personal project
+	get 'admins/index'
+
+
 end

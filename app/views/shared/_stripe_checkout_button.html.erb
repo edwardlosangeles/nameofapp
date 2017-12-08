@@ -10,3 +10,5 @@
   data-description="<%= @product.description %>"
   data-amount="<%= @product.price_in_cents %>">
 </script>
+<!-- 20171129 6.6: Creating Payments -->
+<%= hidden_field_tag(:product_id, @product.id) %>

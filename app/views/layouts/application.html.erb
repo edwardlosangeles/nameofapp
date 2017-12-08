@@ -73,6 +73,14 @@
               <li><%= link_to "ABOUT", static_pages_about_path %></li>
               <li><%= link_to "CONTACT", static_pages_contact_path %></li>
               <li><%= link_to "PRODUCTS", products_path %></li>
+              <li><%= link_to "ORDERS", orders_path %></li>
+
+              <!-- 20171208 Admin Controller, personal project -->
+              <li>
+                <% if user_signed_in? && current_user.admin? %><!-- Devise provided this helper -->
+                  <%= link_to "ADMIN", admins_index_path %>
+                <% end %>
+              </li> 
 
               <!-- ED 20170918 search form -->
               <!-- original without bootstrap -->

@@ -1,0 +1,35 @@
+<!-- 20171129 6.6: Creating Payments -->
+<div class="order-styling">
+
+  <% if !@orders.present? %>
+    <div class="orders-text">You have no orders</div>
+  <% else %>
+    <h1>Orders</h1>
+    <table>
+      <thead>
+        <tr>
+        	<th>Order ID</th>
+          <th>User ID</th>
+          <th>User</th>
+          <th>Email</th>
+          <th>Product ID</th>
+          <th>Product</th>
+          <th>Total in cents</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.user_id %></td>
+            <td><%= order.user.first_name %> <%= order.user.last_name %></td>
+            <td><%= order.user.email %></td>
+            <td><%= order.product_id %></td>
+            <td><%= order.product.name %></td>
+            <td><%= order.total_in_cents %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %> <!-- if !@orders.present? -->
+</div><!-- order-styling -->
