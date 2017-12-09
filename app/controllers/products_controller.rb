@@ -5,15 +5,6 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
 
-    collection = [2,7,9]
-    logger.debug "total of #{collection.count} items"
-    collection.each do |item|
-      logger.debug "#{item}: before increment"
-      item += 1
-      logger.debug "#{item}: after increment"
-    end
-    logger.debug "done"
-
     # ED 20170918 search form
     #original contents of index was just this one line
     #@products = Product.all
@@ -40,6 +31,7 @@ class ProductsController < ApplicationController
       # original
       #@products = Product.all
       @products = Product.all.paginate(:page => params[:page], :per_page => 6)
+      byebug
     end    
     #remember, associated view, index.html.erb, is rendered after index action finishes
   end
