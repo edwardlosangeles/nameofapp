@@ -23,7 +23,6 @@ class ProductsController < ApplicationController
       # original
       #@products = Product.search(search_term)
       @products = Product.search(search_term).paginate(:page => params[:page], :per_page => 6)
-
     else
 
       #20171022 5.9 Validation & Pagination
