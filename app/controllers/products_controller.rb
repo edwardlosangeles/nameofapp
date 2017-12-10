@@ -31,7 +31,6 @@ class ProductsController < ApplicationController
       # original
       #@products = Product.all
       @products = Product.all.paginate(:page => params[:page], :per_page => 6)
-      
     end    
     #remember, associated view, index.html.erb, is rendered after index action finishes
   end

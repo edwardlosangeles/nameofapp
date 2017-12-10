@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
 
 	# POST /payments
 	def create
-		
+		p "*****************************"
 		@product = Product.find_by(id: params[:product_id])
 
 		@user = current_user
