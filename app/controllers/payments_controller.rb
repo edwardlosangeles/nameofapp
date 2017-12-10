@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
 
 	# POST /payments
 	def create
-
+		
 		@product = Product.find_by(id: params[:product_id])
 
 		@user = current_user
@@ -28,9 +28,7 @@ class PaymentsController < ApplicationController
 			if charge.paid
 				Order.create(user_id: @user.id, product_id: @product.id, total_in_cents: @product.price_in_cents)
 			end
-		end
 
-		begin
 			rescue Stripe::CardError => e
 				# The card has been declined
 				body = e.json_body
@@ -68,12 +66,8 @@ class PaymentsController < ApplicationController
 			  body = e.json_body
 			  err = body[:error]
 			  flash[:error] = "Unfortunately, there was an error processing your payment: #{err[:message]}"
-
 		end
-		
 		redirect_to product_path(@product), notice: 'Thank you for your purchase'
-
 	end
-
 
 end
