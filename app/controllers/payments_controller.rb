@@ -7,7 +7,7 @@ class PaymentsController < ApplicationController
 
 	# POST /payments
 	def create
-		p "*******************************************THIS IS JUST A TEST1******************"		
+		
 		@product = Product.find_by(id: params[:product_id])
 
 		@user = current_user
