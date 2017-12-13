@@ -1,10 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #20171210 6.8 Security
+  #authenticate user first to make sure there is someone logged in just so if statement in isadmin won't throw an error
+  #because is admin checks if current user is logged in. If there is no user logged in, then !current_user.admin? is unidentified
+  before_action :authenticate_user!, only: [:edit]
+  before_action :isadmin, only: [:edit]
 
   # GET /products
   # GET /products.json
   def index
-
+    
     # ED 20170918 search form
     #original contents of index was just this one line
     #@products = Product.all
@@ -23,6 +28,7 @@ class ProductsController < ApplicationController
       # original
       #@products = Product.search(search_term)
       @products = Product.search(search_term).paginate(:page => params[:page], :per_page => 6)
+
     else
 
       #20171022 5.9 Validation & Pagination
@@ -30,6 +36,7 @@ class ProductsController < ApplicationController
       # original
       #@products = Product.all
       @products = Product.all.paginate(:page => params[:page], :per_page => 6)
+
     end    
     #remember, associated view, index.html.erb, is rendered after index action finishes
   end
@@ -112,4 +119,12 @@ class ProductsController < ApplicationController
       # params.require(:product).permit(:name, :description, :image_url, :color, :price
       params.require(:product).permit(:name, :description, :image_url, :color, :price_in_cents)
     end
+
+    #20171210 6.8 Security
+    def isadmin
+      if !current_user.admin?
+        redirect_to root_path, alert: 'Not authorized to access this page'
+      end
+    end
+
 end

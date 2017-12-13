@@ -14,7 +14,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+
+    #20171210 6.8 Security
+    if signed_in? && current_user.admin?
+      @users = User.all
+    else
+      redirect_to root_path, alert: 'Not authorized to access this page'
+    end
+    
   end
 
   # GET /users/1
