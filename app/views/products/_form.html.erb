@@ -39,6 +39,12 @@
     <span class="input-group-addon"><%= form.label :image_url %></span>
     <%= form.text_field :image_url, id: :product_image_url, class: "form-control" %>
   </div>
+  
+  <!-- #20171213 6.9: JavaScript on Rails -->
+  <div class="field input-group">
+    <span class="input-group-addon"><%= form.label :image_thumb %></span>
+    <%= form.text_field :image_thumb, class: "form-control" %>
+  </div>
 
   <div class="field input-group">
     <span class="input-group-addon"><%= form.label :color %></span>

@@ -117,7 +117,8 @@ class ProductsController < ApplicationController
       # 20171124 6.5: Payment Forms with Stripe
       # original
       # params.require(:product).permit(:name, :description, :image_url, :color, :price
-      params.require(:product).permit(:name, :description, :image_url, :color, :price_in_cents)
+      # 20171213 6.9: JavaScript on Rails added :image_thumb
+      params.require(:product).permit(:name, :description, :image_url, :color, :price_in_cents, :image_thumb)
     end
 
     #20171210 6.8 Security
