@@ -1,5 +1,4 @@
 // 20171017 5.8 Comments Controller & Views
-
 // raty
 $(document).on('turbolinks:load', function(){
 	$('.rating').raty({
@@ -16,4 +15,30 @@ $(document).on('turbolinks:load', function(){
 	      return $(this).attr('data-score');
 	    }
 	  });
+});
+
+//20171213 6.9: JavaScript on Rails
+//elevateZoom
+$(document).on('turbolinks:load', function(){
+	$('.img-zoom').elevateZoom({
+		// tint: true,
+		// tintColour: 'black',
+		// tintOpacity: 0.4,
+		// zoomWindowWidth: 700,
+		// zoomWindowHeight: 500,
+		// scrollZoom: true,
+
+		zoomType: "inner",
+		cursor: "crosshair",
+
+		// lensFadeIn: 500,
+		// lensFadeOut: 500,
+		zoomWindowFadeIn: 500,
+		zoomWindowFadeOut: 500,
+
+		easing: true
+
+
+
+	});
 });

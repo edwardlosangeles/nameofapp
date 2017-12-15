@@ -4,7 +4,12 @@
 	  <h1><%= link_to product.name, product %></h1>
 	  
 	  <!-- 20171213 6.9: JavaScript on Rails -->
-	  <%= image_tag(product.image_thumb, class: "img-responsive") %>
+	  <!-- original code -->
+	  <%#= image_tag(product.image_url, class: "img-responsive") %>
+	  <%= link_to product do %>
+	  	<%= image_tag(product.image_thumb, class: "img-responsive img-zoom") %>
+	  <% end %>
+
 	  <p class="oneline"><%= product.description %></p>
 	  <!-- 20171124 6.5: Payment Forms with Stripe -->
 	  <!-- original -->
