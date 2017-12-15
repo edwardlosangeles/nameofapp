@@ -7,6 +7,7 @@ class AdminsController < ApplicationController
 		@products = Product.all
 		@users = User.all
 		@orders = Order.all
+		@comments = Comment.all
 	end
 
 	private
