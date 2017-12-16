@@ -16,6 +16,9 @@ class CommentsController < ApplicationController
 			if @comment.save
 				format.html { redirect_to @product, notice: 'Review was created successfully.' }
 				format.json { render :show, status: :created, location: @product }
+				# 20171215 6.10: AJAX
+				# don't know why this wasn't here in the first place
+				format.js
 			else
 				format.html { redirect_to @product, alert: 'Review was not saved successfully.' }
 				format.json { render json: @comment.errors, status: :unprocessable_entity }
