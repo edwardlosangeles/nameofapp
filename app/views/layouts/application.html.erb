@@ -67,6 +67,17 @@
               <!-- <li><a href="../static_pages/contact">CONTACT</a></li> -->
               <!-- <li><a href="../products">PRODUCTS</a></li> -->
 
+              <!-- 20170929 ED 5.4 authentication -->
+              <!-- NEW LOCATION -->
+              <!-- devise login logout buttons -->
+              <li>
+                <% if user_signed_in? %><!-- Devise provided this helper -->
+                  <%= link_to('Logout ' + current_user.email, destroy_user_session_path, method: :delete) %>
+                <% else %>
+                  <%= link_to('Login', new_user_session_path) %>
+                <% end %>
+              </li>
+
               <!-- ED 20170915 just for 5.1, updated navigation bar links to dynamic links -->
               <!-- dynamic links -->
               <li><%= link_to "HOME", static_pages_index_path %></li>
@@ -115,16 +126,17 @@
             </ul>
             
             <!-- 20170929 ED 5.4 authentication -->
+            <!-- ORIGINAL LOCATION -->
             <!-- devise login logout buttons -->
-            <ul class="nav pull-right">
-              <li>
-                <% if user_signed_in? %><!-- Devise provided this helper -->
-                  <%= link_to('Logout ' + current_user.email, destroy_user_session_path, method: :delete) %>
-                <% else %>
-                  <%= link_to('Login', new_user_session_path) %>
-                <% end %>
-              </li>              
-            </ul>
+            <!-- <ul class="nav pull-right"> -->
+              <!-- <li> -->
+                <%# if user_signed_in? %><!-- Devise provided this helper -->
+                  <%#= link_to('Logout ' + current_user.email, destroy_user_session_path, method: :delete) %>
+                <%# else %>
+                  <%#= link_to('Login', new_user_session_path) %>
+                <%# end %>
+              <!-- </li>               -->
+            <!-- </ul> -->
 
           </nav> <!-- END navbar-collapse -->
           

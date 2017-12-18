@@ -1,25 +1,43 @@
+// 20171215 6.10: AJAX
+// the way it was before
+// $(document).on('turbolinks:load', function(){
+// 	$('.rating').raty({});
+//	$('.rated').raty({});
+// });
+// $(document).on('turbolinks:load', function(){
+//	$('.img-zoom').elevateZoom({});
+// });
+// now create a reusable function and call function again in
+// $(document).on('turbolinks:load', function(){
+// add ajaxSucess to $(document) function to eliminate having to call refreshRating()
+
+
 // 20171017 5.8 Comments Controller & Views
 // raty
-$(document).on('turbolinks:load', function(){
+var refreshRating = function() {
 	$('.rating').raty({
 		starHalf: '<%= asset_path 'star-half.png' %>',
 		starOff: '<%= asset_path 'star-off.png' %>',
 		starOn: '<%= asset_path 'star-on.png' %>',
 		scoreName: 'comment[rating]'
-	});	$('.rated').raty({
-	    starHalf: '<%= asset_path 'star-half.png' %>',
-	    starOff: '<%= asset_path 'star-off.png' %>',
-	    starOn: '<%= asset_path 'star-on.png' %>',
-	    readOnly: true,
-	    score: function() {
-	      return $(this).attr('data-score');
-	    }
-	  });
-});
+	});
+	$('.rated').raty({
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starOn: '<%= asset_path 'star-on.png' %>',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+	});
+};
+
 
 //20171213 6.9: JavaScript on Rails
 //elevateZoom
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load ajaxSuccess', function() {
+	refreshRating();
+
 	$('.img-zoom').elevateZoom({
 		// tint: true,
 		// tintColour: 'black',

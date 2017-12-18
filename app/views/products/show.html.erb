@@ -67,7 +67,13 @@
 <br>
 <div class="row">
 	<div class="col-xs-12" id="product_show">
-		<p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p>		
+		
+		<!-- 20171215 6.10: AJAX -->
+		<!-- add #id so AJAX can select it app/views/comments/create.js.erb -->
+		<p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div></p>
+		<!-- original -->
+		<!-- <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p> -->
+	
 	</div>
 </div>
 
