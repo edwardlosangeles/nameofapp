@@ -35,7 +35,7 @@ var refreshRating = function() {
 
 //20171213 6.9: JavaScript on Rails
 //elevateZoom
-$(document).on('turbolinks:load ajaxSuccess', function() {
+$(document).on('turbolinks:load ajax:success', function() {
 	refreshRating();
 
 	$('.img-zoom').elevateZoom({
