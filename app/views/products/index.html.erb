@@ -14,8 +14,14 @@
 </div><%# replaced original table with erb %>
 
 <div class="row">
-	<!-- automatically calls partial _product.html.erb -->
-	<%= render @products %>
+	
+	<!-- 20171220 6.11: Caching -->
+	<% cache(cache_key_for_products) do %>
+	<% sleep 1 %>
+		<!-- automatically calls partial _product.html.erb -->
+		<%= render @products %>
+	<% end %>
+
 </div>
 
 

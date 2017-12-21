@@ -1,66 +1,68 @@
 <!-- eg http://localhost:3000/products/10 -->
 
+<!-- 20171220 6.11: Caching -->
+<% cache @product do %>
 
-<div class="row">
-	<div class="col-xs-4" id="product_show">
-		<%= link_to 'Back', products_path %>
-	</div>
-	<div class="col-xs-4" id="product_show">
-		<h2>
-			<%= @product.name %>
-		</h2>
-	</div>
-	<!-- #20171210 6.8 Security -->
-	<!-- <div class="col-xs-4" id="product_show"> -->
-		<!-- <div class="right_col"> -->
-			<%#= link_to 'Edit', edit_product_path(@product) %>
+	<div class="row">
+		<div class="col-xs-4" id="product_show">
+			<%= link_to 'Back', products_path %>
+		</div>
+		<div class="col-xs-4" id="product_show">
+			<h2>
+				<%= @product.name %>
+			</h2>
+		</div>
+		<!-- #20171210 6.8 Security -->
+		<!-- <div class="col-xs-4" id="product_show"> -->
+			<!-- <div class="right_col"> -->
+				<%#= link_to 'Edit', edit_product_path(@product) %>
+			<!-- </div> -->
 		<!-- </div> -->
-	<!-- </div> -->
-</div>
-
-<div class="row">
-	<div class="col-xs-12" id="product_show">
-		<p>
-			<!-- 20171213 6.9: JavaScript on Rails -->
-			<%= image_tag(@product.image_url, width: "500", class: "img-responsive img-zoom") %>
-		<p>
 	</div>
-</div>
 
-
-<div class="row">
-	<div class="col-xs-6" id="product_show">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		<%= @product.description %>
-	</div>
-	
-	<!-- 20171124 6.5: Payment Forms with Stripe -->
-	<div class="col-xs-6" id="product_show">
-		<div class="right_col">
-			<%= form_with(url: '/payments/create') do |form| %>
-				<%= render partial: "shared/stripe_checkout_button" %>
-			<% end %>
+	<div class="row">
+		<div class="col-xs-12" id="product_show">
+			<p>
+				<!-- 20171213 6.9: JavaScript on Rails -->
+				<%= image_tag(@product.image_url, width: "500", class: "img-responsive img-zoom") %>
+			<p>
 		</div>
 	</div>
-	
-</div>
 
-<div class="row">
-	<div class="col-xs-6" id="product_show">
-			<strong>Color:</strong>
-			<%= @product.color %>
-	</div>
-	<div class="col-xs-6" id="product_show">
-		<div class="right_col">
-			<strong>Price:</strong>
-			<!-- 20171124 6.5: Payment Forms with Stripe -->
-			<!-- original -->
-			<!-- <%#= number_to_currency(@product.price, :unit => "$") %> -->
-			<%= number_to_currency((@product.price_in_cents.to_f)/100, :unit => "$") %>
+
+	<div class="row">
+		<div class="col-xs-6" id="product_show">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<%= @product.description %>
+		</div>
+		
+		<!-- 20171124 6.5: Payment Forms with Stripe -->
+		<div class="col-xs-6" id="product_show">
+			<div class="right_col">
+				<%= form_with(url: '/payments/create') do |form| %>
+					<%= render partial: "shared/stripe_checkout_button" %>
+				<% end %>
+			</div>
 		</div>
 	</div>
-</div>
 
+	<div class="row">
+		<div class="col-xs-6" id="product_show">
+				<strong>Color:</strong>
+				<%= @product.color %>
+		</div>
+		<div class="col-xs-6" id="product_show">
+			<div class="right_col">
+				<strong>Price:</strong>
+				<!-- 20171124 6.5: Payment Forms with Stripe -->
+				<!-- original -->
+				<!-- <%#= number_to_currency(@product.price, :unit => "$") %> -->
+				<%= number_to_currency((@product.price_in_cents.to_f)/100, :unit => "$") %>
+			</div>
+		</div>
+	</div>
+
+<% end %>
 
 <!-- 20171017 5.8 Comments Controller & Views -->
 <!-- raty -->
