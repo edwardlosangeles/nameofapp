@@ -52,6 +52,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    dalli (2.7.6)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -211,6 +212,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 2.0)
   coffee-rails (~> 4.2)
+  dalli
   devise
   factory_bot_rails (~> 4.0)
   jbuilder (~> 2.5)
@@ -233,4 +235,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.15.3
+   1.16.0

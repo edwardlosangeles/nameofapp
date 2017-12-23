@@ -83,3 +83,6 @@ gem 'rails-controller-testing'
 
 # 20171124 6.5: Payment Forms with Stripe
 gem 'stripe'
+
+# 20171220 6.11: Caching
+gem 'dalli'
