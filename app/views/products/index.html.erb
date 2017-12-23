@@ -16,9 +16,9 @@
 <div class="row">
 	
 	<!-- 20171220 6.11: Caching -->
-	<% cache @products do %>
+	<%# cache @products do %>
 	<!-- doesn't work with pagination, displays projects from 1st page only even if you go to 2nd page -->
-	<%# cache(cache_key_for_products) do %>
+	<% cache(cache_key_for_products) do %>
 
 		<!-- automatically calls partial _product.html.erb -->
 		<%= render @products %>
