@@ -39,4 +39,14 @@ class Product < ApplicationRecord
 		comments.average(:rating).to_f
 	end
 
+	# 20171222 6.12: Redis & Performance Strategy
+	def views
+		$redis.get("product:#{id}") # this is equivalent to 'GET product:1'
+	end
+
+	# 20171222 6.12: Redis & Performance Strategy
+	def viewed!
+		$redis.incr("product:#{id}") # this is equivalent to 'INC product:1'
+	end
+
 end

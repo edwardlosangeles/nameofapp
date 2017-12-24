@@ -47,10 +47,13 @@ class ProductsController < ApplicationController
     # 20171017 5.8 Comments Controller & Views
     #@comments = @product.comments.order("created_at DESC")
 
-
     #20171022 5.9 Validation & Pagination
     #only allow 5 comments per page
     @comments = @product.comments.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+
+    # 20171222 6.12: Redis & Performance Strategy
+    # @product.viewed!
+
   end
 
   # GET /products/new

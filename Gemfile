@@ -86,3 +86,6 @@ gem 'stripe'
 
 # 20171220 6.11: Caching
 gem 'dalli'
+
+# 20171222 6.12: Redis & Performance Strategy
+gem 'redis-rails'
