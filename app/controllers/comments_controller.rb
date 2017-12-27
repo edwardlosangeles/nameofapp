@@ -14,6 +14,10 @@ class CommentsController < ApplicationController
 		#user must be logged in and write a comment and input star rating to save a comment
 		respond_to do |format|
 			if @comment.save
+				
+				# 20171224 6.13: Real-Time Updates with ActionCable
+				ActionCable.server.broadcast 'product_channel', comment: @comment, average_rating: @comment.product.average_rating
+
 				format.html { redirect_to @product, notice: 'Review was created successfully.' }
 				format.json { render :show, status: :created, location: @product }
 				# 20171215 6.10: AJAX

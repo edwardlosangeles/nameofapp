@@ -5,6 +5,9 @@
 //= require_self
 //= require_tree ./channels
 
+
+// 20171224 6.13: Real-Time Updates with ActionCable
+// this was already here, just confirm it is uncommented
 (function() {
   this.App || (this.App = {});
 

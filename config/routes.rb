@@ -77,5 +77,7 @@ Rails.application.routes.draw do
 	# 20171208 Admin Controller, personal project
 	get 'admins/index'
 
+	# 20171224 6.13: Real-Time Updates with ActionCable
+	mount ActionCable.server => '/cable'
 
 end
