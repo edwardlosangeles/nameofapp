@@ -2,8 +2,12 @@
 // $("#new_comment").hide();
 $("#new_comment").html("Thank you for your review!");
 
+// 20171228 6.14: ActiveJob and Advanced ActionCable
+// remove these 2 so comment doesn't appear twice for user creating comment
+// move to nameofapp/app/assets/javascripts/channels/product.js
+
 // selects the only instance of class, .product-reviews, in app/views/products/_comments.html.erb
-$('.product-reviews').prepend("<%= j render @comment %>");
+// $('.product-reviews').prepend("<%= j render @comment %>");
 
 // selects id, #average-rating, in app/views/products/show.html.erb
-$("#average-rating").attr('data-score', "<%= @product.average_rating %>");
+// $("#average-rating").attr('data-score', "<%= @product.average_rating %>");

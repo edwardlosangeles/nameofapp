@@ -14,4 +14,7 @@ class Comment < ApplicationRecord
   validates :product, presence: true
   validates :rating, numericality: { only_integer: true }
 
+  # 20171228 6.14: ActiveJob and Advanced ActionCable
+  after_create_commit { CommentUpdateJob.perform_later(self, self.user) }
+
 end
