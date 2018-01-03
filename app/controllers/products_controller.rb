@@ -2,9 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   #20171210 6.8 Security
   #authenticate user first to make sure there is someone logged in just so if statement in isadmin won't throw an error
-  #because is admin checks if current user is logged in. If there is no user logged in, then !current_user.admin? is unidentified
-  before_action :authenticate_user!, only: [:edit, :destroy]
-  before_action :isadmin, only: [:edit, :destroy]
+  #because isadmin checks if current user is logged in. If there is no user logged in, then !current_user.admin? is unidentified
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :isadmin, only: [:new, :edit, :destroy]
 
   # GET /products
   # GET /products.json
