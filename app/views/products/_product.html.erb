@@ -26,9 +26,10 @@
 		    <!-- 20171210 6.8 Security -->
 		    <% if signed_in? && current_user.admin? %>
 		    	<%= link_to 'Edit', edit_product_path(product) %>
+		    	<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
 		    <% end %>
 
-		    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+		    
 		  </p>
 
 	  <% end %>
