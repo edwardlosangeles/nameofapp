@@ -20,16 +20,16 @@
 		  <!-- <strong><%#= number_to_currency(product.price, :unit => "$") %></strong> -->
 		  <strong><%= number_to_currency((product.price_in_cents.to_f)/100, :unit => "$") %></strong>
 
-		  <p>	  	
-		  	<%= link_to 'Show', product %>
-		    
+		  <!-- 20171220 6.11: Caching -->
+		  <!-- commented these 2 because caching messes with it -->
+		  <!-- place links in /app/views/products/show.html.erb outside of cache block -->
+		  <!-- <p> -->
 		    <!-- 20171210 6.8 Security -->
-		    <% if signed_in? && current_user.admin? %>
-		    	<%= link_to 'Edit', edit_product_path(product) %>
-		    	<%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
-		    <% end %>
-		    
-		  </p>
+		    <%# if signed_in? && current_user.admin? %>
+		    	<%#= link_to 'Edit', edit_product_path(product) %>
+		    	<%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+		    <%# end %>
+		  <!-- </p> -->
 
 	  <% end %>
 

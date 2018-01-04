@@ -1,6 +1,14 @@
 <!-- eg http://localhost:3000/products/10 -->
 
 <!-- 20171220 6.11: Caching -->
+<!-- moved from app/views/products/_product.html.erb so it can be taken out of cache block -->
+<!-- 20171210 6.8 Security -->
+<% if signed_in? && current_user.admin? %>
+	<%= link_to 'Edit', edit_product_path(@product) %>
+	<br>
+	<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
 <% cache @product do %>
 
 	<div class="row">
@@ -25,7 +33,7 @@
 			<p>
 				<!-- 20171213 6.9: JavaScript on Rails -->
 				<%= image_tag(@product.image_url, width: "500", class: "img-responsive img-zoom") %>
-			<p>
+			</p>
 		</div>
 	</div>
 
