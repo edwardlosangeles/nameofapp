@@ -4,79 +4,79 @@
 <!-- moved from app/views/products/_product.html.erb so it can be taken out of cache block -->
 <!-- 20171210 6.8 Security -->
 <% if signed_in? && current_user.admin? %>
-	<%= link_to 'Edit', edit_product_path(@product) %>
-	<br>
-	<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_product_path(@product) %>
+  <br>
+  <%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <% cache @product do %>
 
-	<div class="row">
-		<div class="col-xs-4" id="product_show">
-			<%= link_to 'Back', products_path %>
-		</div>
-		<div class="col-xs-4" id="product_show">
-			<h2>
-				<%= @product.name %>
-			</h2>
-		</div>
-		<!-- #20171210 6.8 Security -->
-		<!-- <div class="col-xs-4" id="product_show"> -->
-			<!-- <div class="right_col"> -->
-				<%#= link_to 'Edit', edit_product_path(@product) %>
-			<!-- </div> -->
-		<!-- </div> -->
-	</div>
+  <div class="row">
+    <div class="col-xs-4" id="product_show">
+      <%= link_to 'Back', products_path %>
+    </div>
+    <div class="col-xs-4" id="product_show">
+      <h2>
+        <%= @product.name %>
+      </h2>
+    </div>
+    <!-- #20171210 6.8 Security -->
+    <!-- <div class="col-xs-4" id="product_show"> -->
+      <!-- <div class="right_col"> -->
+        <%#= link_to 'Edit', edit_product_path(@product) %>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
 
-	<div class="row">
-		<div class="col-xs-12" id="product_show">
-			<p>
-				<!-- 20171213 6.9: JavaScript on Rails -->
-				<%= image_tag(@product.image_url, width: "500", class: "img-responsive img-zoom") %>
-			</p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-12" id="product_show">
+      <p>
+        <!-- 20171213 6.9: JavaScript on Rails -->
+        <%= image_tag(@product.image_url, width: "500", class: "img-responsive img-zoom") %>
+      </p>
+    </div>
+  </div>
 
 <% end %>
 
-	<!-- 20171222 6.12: Redis & Performance Strategy -->
-	<span class="badge">
-		Views: <%= @product.views %>
-	</span>
+  <!-- 20171222 6.12: Redis & Performance Strategy -->
+  <span class="badge">
+    Views: <%= @product.views %>
+  </span>
 
 
 
-	<div class="row">
-		<div class="col-xs-6" id="product_show">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<%= @product.description %>
-		</div>
-		
-		<!-- 20171124 6.5: Payment Forms with Stripe -->
-		<div class="col-xs-6" id="product_show">
-			<div class="right_col">
-				<%= form_with(url: '/payments/create') do |form| %>
-					<%= render partial: "shared/stripe_checkout_button" %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-6" id="product_show">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <%= @product.description %>
+    </div>
+    
+    <!-- 20171124 6.5: Payment Forms with Stripe -->
+    <div class="col-xs-6" id="product_show">
+      <div class="right_col">
+        <%= form_with(url: '/payments/create') do |form| %>
+          <%= render partial: "shared/stripe_checkout_button" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-	<div class="row">
-		<div class="col-xs-6" id="product_show">
-				<strong>Color:</strong>
-				<%= @product.color %>
-		</div>
-		<div class="col-xs-6" id="product_show">
-			<div class="right_col">
-				<strong>Price:</strong>
-				<!-- 20171124 6.5: Payment Forms with Stripe -->
-				<!-- original -->
-				<!-- <%#= number_to_currency(@product.price, :unit => "$") %> -->
-				<%= number_to_currency((@product.price_in_cents.to_f)/100, :unit => "$") %>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-6" id="product_show">
+        <strong>Color:</strong>
+        <%= @product.color %>
+    </div>
+    <div class="col-xs-6" id="product_show">
+      <div class="right_col">
+        <strong>Price:</strong>
+        <!-- 20171124 6.5: Payment Forms with Stripe -->
+        <!-- original -->
+        <!-- <%#= number_to_currency(@product.price, :unit => "$") %> -->
+        <%= number_to_currency((@product.price_in_cents.to_f)/100, :unit => "$") %>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -84,45 +84,45 @@
 <!-- raty -->
 <br>
 <div class="row">
-	<div class="col-xs-12" id="product_show">
-		
-		<!-- 20171215 6.10: AJAX -->
-		<!-- add #id so AJAX can select it app/views/comments/create.js.erb -->
-		<p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div></p>
-		<!-- original -->
-		<!-- <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p> -->
-	
-	</div>
+  <div class="col-xs-12" id="product_show">
+    
+    <!-- 20171215 6.10: AJAX -->
+    <!-- add #id so AJAX can select it app/views/comments/create.js.erb -->
+    <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div></p>
+    <!-- original -->
+    <!-- <p>Average Rating: <div class="rated" data-score="<%= @product.average_rating %>"></div></p> -->
+  
+  </div>
 </div>
 
 <!-- 20171017 5.8 Comments Controller & Views -->
 <div class="row">
-	<div class="col-xs-12" id="product_show">
-		<div class="user_comment">
-			<%= render 'new_comment' %>
-		</div>
-	</div>
+  <div class="col-xs-12" id="product_show">
+    <div class="user_comment">
+      <%= render 'new_comment' %>
+    </div>
+  </div>
 </div>
 <!-- 20171228 6.14: ActiveJob and Advanced ActionCable -->
 <div class="row" data-product-id="<%= @product.id %>">
-	<div class="col-xs-12" id="product_show">
-		<div class="prod_review">Product Reviews</div>
-		<!-- 20171224 6.13: Real-Time Updates with ActionCable -->
-		<div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
-			<%= render 'comments' %>
-	</div>
+  <div class="col-xs-12" id="product_show">
+    <div class="prod_review">Product Reviews</div>
+    <!-- 20171224 6.13: Real-Time Updates with ActionCable -->
+    <div class="alert alert-info" style="display:none" role="alert">A new comment was posted!</div>
+      <%= render 'comments' %>
+  </div>
 </div>
 
 <!-- 20171022 5.9 Validation & Pagination -->
 <!-- only allow 5 comments per page -->
 <div class="apple_pagination">
-	<%= will_paginate @comments %>
+  <%= will_paginate @comments %>
 </div>
 
-	<!-- <p> -->
-		<!-- <strong>Image url:</strong> -->
-		<%#= @product.image_url %>
-	<!-- </p> -->
+  <!-- <p> -->
+    <!-- <strong>Image url:</strong> -->
+    <%#= @product.image_url %>
+  <!-- </p> -->
 
 
 

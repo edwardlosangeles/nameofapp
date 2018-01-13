@@ -10,48 +10,48 @@
 <!-- add styles in app/assets/stylesheets/landing_page.scss -->
 <div id="carousel-index" class="carousel slide" data-ride="carousel">
 
-	<!-- indicators{dots at the bottom} -->
-	<ol class="carousel-indicators">
+  <!-- indicators{dots at the bottom} -->
+  <ol class="carousel-indicators">
 
-		<% for i in 0..@products.length-1 %>
-			<li data-target="#carousel-index" data-slide-to="<%= i %>"<%= " class=active" if i == 0 %> ></li>
-			<!-- <li data-target="#carousel-index" data-slide-to="0" class="active"></li> -->
-		<% end %>
-		
-	</ol><!-- indicators -->
+    <% for i in 0..@products.length-1 %>
+      <li data-target="#carousel-index" data-slide-to="<%= i %>"<%= " class=active" if i == 0 %> ></li>
+      <!-- <li data-target="#carousel-index" data-slide-to="0" class="active"></li> -->
+    <% end %>
+    
+  </ol><!-- indicators -->
 
-	<!-- wrapper for slides (images/captions) -->
-	<!-- dynamically add top 3 items from products table -->
-	<div class="carousel-inner" role="listbox">			
-		
-		<% @products.each do |product| %>
-		
-			<!-- this div should be <div class="item"> for all except the first -->
-			<!-- the first should be <div class="item active"> -->
-			<div class="item<%= " active" if product == @products.first %>">
-				<div class="center-image">
-					<%= image_tag(product.image_url) %>
-				</div>
-				<div class="carousel-caption">
-					<h3><%= product.name %></h3>
-					<p><%= product.description %></p>
-				</div>
-			</div> <!-- item -->
-		
-		<% end %> <!-- end loop -->
+  <!-- wrapper for slides (images/captions) -->
+  <!-- dynamically add top 3 items from products table -->
+  <div class="carousel-inner" role="listbox">     
+    
+    <% @products.each do |product| %>
+    
+      <!-- this div should be <div class="item"> for all except the first -->
+      <!-- the first should be <div class="item active"> -->
+      <div class="item<%= " active" if product == @products.first %>">
+        <div class="center-image">
+          <%= image_tag(product.image_url) %>
+        </div>
+        <div class="carousel-caption">
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+        </div>
+      </div> <!-- item -->
+    
+    <% end %> <!-- end loop -->
 
-	</div> <!-- carousel-inner -->
+  </div> <!-- carousel-inner -->
 
 
-	<!-- controls (arrows) -->
-	<a class="left carousel-control" href="#carousel-index" role="button" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a> <!-- left arrow control -->
-	<a class="right carousel-control" href="#carousel-index" role="button" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a> <!-- right arrow control -->
+  <!-- controls (arrows) -->
+  <a class="left carousel-control" href="#carousel-index" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a> <!-- left arrow control -->
+  <a class="right carousel-control" href="#carousel-index" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a> <!-- right arrow control -->
 
 </div> <!-- carousel -->
 

@@ -3,114 +3,114 @@
 
 <div class="admin-styling">
 
-	<h1>Products</h1>
-		
-	<table>
-		<thead>
-			<tr>
-				<% @products.columns.each do |column| %>
-					<th><%= column.name %></th>
-				<% end %>
-			</tr>
-		</thead>
-		
-		<tbody>
-			<% @products.each do |product| %>
-				<tr>
-					<td><%= product.id %></td>
-					<td><%= product.name %></td>
-					<td><%= product.description %></td>
-					<td><%= product.image_url %></td>
-					<td><%= product.created_at %></td>
-					<td><%= product.updated_at %></td>
-					<td><%= product.color %></td>
-					<td><%= product.price_in_cents %></td>
-					<td><%= product.image_thumb %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <h1>Products</h1>
+    
+  <table>
+    <thead>
+      <tr>
+        <% @products.columns.each do |column| %>
+          <th><%= column.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.image_url %></td>
+          <td><%= product.created_at %></td>
+          <td><%= product.updated_at %></td>
+          <td><%= product.color %></td>
+          <td><%= product.price_in_cents %></td>
+          <td><%= product.image_thumb %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-	<h1>Comments</h1>
-		
-	<table>
-		<thead>
-			<tr>
-				<% @comments.columns.each do |comment| %>
-					<th><%= comment.name %></th>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @comments.each do |comment| %>
-				<tr>
-					<td><%= comment.id %></td>
-					<td><%= comment.user_id %></td>
-					<td><%= comment.body %></td>
-					<td><%= comment.rating %></td>
-					<td><%= comment.product_id %></td>
-					<td><%= comment.created_at %></td>
-					<td><%= comment.updated_at %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <h1>Comments</h1>
+    
+  <table>
+    <thead>
+      <tr>
+        <% @comments.columns.each do |comment| %>
+          <th><%= comment.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td><%= comment.id %></td>
+          <td><%= comment.user_id %></td>
+          <td><%= comment.body %></td>
+          <td><%= comment.rating %></td>
+          <td><%= comment.product_id %></td>
+          <td><%= comment.created_at %></td>
+          <td><%= comment.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-	<h1>Users</h1>
-		
-	<table>
-		<thead>
-			<tr>
-				<% @users.columns.each do |column| %>
-					<th><%= column.name %></th>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @users.each do |user| %>
-				<tr>
-					<td><%= user.id %></td>
-					<td><%= user.first_name %></td>
-					<td><%= user.last_name %></td>
-					<td><%= user.created_at %></td>
-					<td><%= user.updated_at %></td>
-					<td><%= user.email %></td>
-					<td><%= user.encrypted_password %></td>
-					<td><%= user.reset_password_token %></td>
-					<td><%= user.reset_password_sent_at %></td>
-					<td><%= user.remember_created_at %></td>
-					<td><%= user.sign_in_count %></td>
-					<td><%= user.current_sign_in_at %></td>
-					<td><%= user.last_sign_in_at %></td>
-					<td><%= user.current_sign_in_ip %></td>
-					<td><%= user.last_sign_in_ip %></td>
-					<td><%= user.admin %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <h1>Users</h1>
+    
+  <table>
+    <thead>
+      <tr>
+        <% @users.columns.each do |column| %>
+          <th><%= column.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.created_at %></td>
+          <td><%= user.updated_at %></td>
+          <td><%= user.email %></td>
+          <td><%= user.encrypted_password %></td>
+          <td><%= user.reset_password_token %></td>
+          <td><%= user.reset_password_sent_at %></td>
+          <td><%= user.remember_created_at %></td>
+          <td><%= user.sign_in_count %></td>
+          <td><%= user.current_sign_in_at %></td>
+          <td><%= user.last_sign_in_at %></td>
+          <td><%= user.current_sign_in_ip %></td>
+          <td><%= user.last_sign_in_ip %></td>
+          <td><%= user.admin %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 
-	<h1>Orders</h1>
-		
-	<table>
-		<thead>
-			<tr>
-				<% @orders.columns.each do |column| %>
-					<th><%= column.name %></th>
-				<% end %>
-			</tr>
-		</thead>
-		<tbody>
-			<% @orders.each do |order| %>
-				<tr>
-					<td><%= order.id %></td>
-					<td><%= order.user_id %></td>
-					<td><%= order.product_id %></td>
-					<td><%= order.total_in_cents %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+  <h1>Orders</h1>
+    
+  <table>
+    <thead>
+      <tr>
+        <% @orders.columns.each do |column| %>
+          <th><%= column.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.user_id %></td>
+          <td><%= order.product_id %></td>
+          <td><%= order.total_in_cents %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

@@ -10,24 +10,24 @@
 <!-- for some reason pages don't render and you don't get error messages without local: true -->
 <!--  which isn't in instructions -->
 <%= form_with(url: "/static_pages/thank_you", local: true) do |form| %> <!-- method is post by default -->
-	<div class="row">
-		<div class="col-md-4">
-			<div class="form-group">
-				<%= form.label :name %>
-				<%= form.text_field :name, class: "form-control", placeholder: "Enter Name", required: true %>
-			</div>
-			<div class="form-group">
-				<%= form.label :email, "Email Address" %> <!-- label default will be "Email" unless explicitly stated: "Email Address" -->
-				<%= form.text_field :email, class: "form-control", placeholder: "Enter Email", required: true %>
-			</div>
-			<div class="form-group">
-				<%= form.label :message %>
-				<%= form.text_area :message, class: "form-control", placeholder: "Enter Message", required: true %>
-			</div>
-		</div><!-- col-md-4 -->
-	</div> <!-- row -->
-	<%= form.submit "Send" %>
-	<!-- config/routes.rb post 'static_pages/thank_you' -->
-	<!-- send form data to app/controllers/static_pages_controller.rb(action: thank_you) -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", placeholder: "Enter Name", required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :email, "Email Address" %> <!-- label default will be "Email" unless explicitly stated: "Email Address" -->
+        <%= form.text_field :email, class: "form-control", placeholder: "Enter Email", required: true %>
+      </div>
+      <div class="form-group">
+        <%= form.label :message %>
+        <%= form.text_area :message, class: "form-control", placeholder: "Enter Message", required: true %>
+      </div>
+    </div><!-- col-md-4 -->
+  </div> <!-- row -->
+  <%= form.submit "Send" %>
+  <!-- config/routes.rb post 'static_pages/thank_you' -->
+  <!-- send form data to app/controllers/static_pages_controller.rb(action: thank_you) -->
 <% end %> <!-- form_with -->
 

@@ -20,64 +20,64 @@
 #                           POST   /orders(.:format)                    orders#create
 #                     order GET    /orders/:id(.:format)                orders#show
 #                           DELETE /orders/:id(.:format)                orders#destroy
-	
+  
 
 
 # 20170929 ED 5.4 authentication
 # $ rails g devise users
 Rails.application.routes.draw do
 
-	# default routes for signing in and out are /users/sign_in & /users/sign_out, but they can be changed
-	# eg instead http://localhost:3000/users/sign_in you can use http://localhost:3000/login
-	# http://localhost:3000/logout will not work if you enter into browser address but the address works when you click Logout button
-	# more reading: https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
-	
-	# 20171104 5.11 ED Automated Email on User Sign Up
-	devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
+  # default routes for signing in and out are /users/sign_in & /users/sign_out, but they can be changed
+  # eg instead http://localhost:3000/users/sign_in you can use http://localhost:3000/login
+  # http://localhost:3000/logout will not work if you enter into browser address but the address works when you click Logout button
+  # more reading: https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
+  
+  # 20171104 5.11 ED Automated Email on User Sign Up
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, controllers: { registrations: "user_registrations" }
 
-	#original
-	#devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
-	
-	# original
-	#devise_for :users
-	
+  #original
+  #devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }
+  
+  # original
+  #devise_for :users
+  
 
-	# 20170929 ED 5.4 authentication
-	# $ rails generate scaffold user first_name last_name
-	resources :users
+  # 20170929 ED 5.4 authentication
+  # $ rails generate scaffold user first_name last_name
+  resources :users
 
-	# 20171017 5.8 Comments Controller & Views
-	# original:
-	# resources :products
-	resources :products do
-		resources :comments
-	end
+  # 20171017 5.8 Comments Controller & Views
+  # original:
+  # resources :products
+  resources :products do
+    resources :comments
+  end
 
-	
+  
 
-	get 'static_pages/about'
-	get 'static_pages/contact'
-	get 'static_pages/index'
+  get 'static_pages/about'
+  get 'static_pages/contact'
+  get 'static_pages/index'
 
-	#ED 20170915 just for 5.1, needed to create dynamic link for featured items in static_pages index
-	get 'static_pages/landing_page'
-	
-	# 20170921 ED 5.3 Sending Emails
-	post 'static_pages/thank_you'
+  #ED 20170915 just for 5.1, needed to create dynamic link for featured items in static_pages index
+  get 'static_pages/landing_page'
+  
+  # 20170921 ED 5.3 Sending Emails
+  post 'static_pages/thank_you'
 
-	root 'static_pages#landing_page'
+  root 'static_pages#landing_page'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :orders, only: [:index, :show, :create, :destroy]
   
-	# 20171129 6.6: Creating Payments
-	post '/payments/create'
+  # 20171129 6.6: Creating Payments
+  post '/payments/create'
 
-	# 20171208 Admin Controller, personal project
-	get 'admins/index'
+  # 20171208 Admin Controller, personal project
+  get 'admins/index'
 
-	# 20171224 6.13: Real-Time Updates with ActionCable
-	mount ActionCable.server => '/cable'
+  # 20171224 6.13: Real-Time Updates with ActionCable
+  mount ActionCable.server => '/cable'
 
 end
