@@ -1,11 +1,11 @@
 // 20171215 6.10: AJAX
 // the way it was before
 // $(document).on('turbolinks:load', function(){
-// 	$('.rating').raty({});
-//	$('.rated').raty({});
+//  $('.rating').raty({});
+//  $('.rated').raty({});
 // });
 // $(document).on('turbolinks:load', function(){
-//	$('.img-zoom').elevateZoom({});
+//  $('.img-zoom').elevateZoom({});
 // });
 // now create a reusable function and call function again in
 // $(document).on('turbolinks:load', function(){
@@ -14,13 +14,13 @@
 // 20171017 5.8 Comments Controller & Views
 // raty
 var refreshRating = function() {
-	$('.rating').raty({
-		starHalf: '<%= asset_path 'star-half.png' %>',
-		starOff: '<%= asset_path 'star-off.png' %>',
-		starOn: '<%= asset_path 'star-on.png' %>',
-		scoreName: 'comment[rating]'
-	});
-	$('.rated').raty({
+  $('.rating').raty({
+    starHalf: '<%= asset_path 'star-half.png' %>',
+    starOff: '<%= asset_path 'star-off.png' %>',
+    starOn: '<%= asset_path 'star-on.png' %>',
+    scoreName: 'comment[rating]'
+  });
+  $('.rated').raty({
     starHalf: '<%= asset_path 'star-half.png' %>',
     starOff: '<%= asset_path 'star-off.png' %>',
     starOn: '<%= asset_path 'star-on.png' %>',
@@ -28,30 +28,30 @@ var refreshRating = function() {
     score: function() {
       return $(this).attr('data-score');
     }
-	});
+  });
 };
 
 //20171213 6.9: JavaScript on Rails
 //elevateZoom
 $(document).on('turbolinks:load ajax:success', function() {
-	refreshRating();
+  refreshRating();
 
-	$('.img-zoom').elevateZoom({
-		// tint: true,
-		// tintColour: 'black',
-		// tintOpacity: 0.4,
-		// zoomWindowWidth: 700,
-		// zoomWindowHeight: 500,
-		// scrollZoom: true,
+  $('.img-zoom').elevateZoom({
+    // tint: true,
+    // tintColour: 'black',
+    // tintOpacity: 0.4,
+    // zoomWindowWidth: 700,
+    // zoomWindowHeight: 500,
+    // scrollZoom: true,
 
-		zoomType: "inner",
-		cursor: "crosshair",
+    zoomType: "inner",
+    cursor: "crosshair",
 
-		// lensFadeIn: 500,
-		// lensFadeOut: 500,
-		zoomWindowFadeIn: 500,
-		zoomWindowFadeOut: 500,
+    // lensFadeIn: 500,
+    // lensFadeOut: 500,
+    zoomWindowFadeIn: 500,
+    zoomWindowFadeOut: 500,
 
-		easing: true
-	});
+    easing: true
+  });
 });

@@ -5,40 +5,40 @@
 //product index view
 
 #product_style h1{
-	color: black;
+  color: black;
 }
 
 #product_style p{
-	font-style: italic;
-	color: gray;
+  font-style: italic;
+  color: gray;
 }
 
 .oneline {
-	//keep text within one line and add ... for text overflow 
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
+  //keep text within one line and add ... for text overflow 
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 //product show view
 
 #product_show h2{
-	text-align: center;
-	font-family: cursive;
+  text-align: center;
+  font-family: cursive;
 }
 
 #product_show .right_col {
-	text-align: right;
+  text-align: right;
 }
 
 //20171017 5.8 Comments Controller & Views
 #product_show .user_comment {
-	padding-top: 25px;
+  padding-top: 25px;
 }
 #product_show .prod_review {
-	color: gray;
-	text-align: left;
-	font-size: 2em;
-	padding-top: 50px;
-	padding-bottom: 10px;
+  color: gray;
+  text-align: left;
+  font-size: 2em;
+  padding-top: 50px;
+  padding-bottom: 10px;
 }

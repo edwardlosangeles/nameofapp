@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
   # handles the following error CanCan::AccessDenied in UsersController#edit
   rescue_from CanCan::AccessDenied do |exception|
 
-  	# 20171115 6.3 Functional Tests
-  	# original
-  	# redirect_to main_app.root_url, alert: exception.message
-  	redirect_to new_user_session_path, alert: exception.message
+    # 20171115 6.3 Functional Tests
+    # original
+    # redirect_to main_app.root_url, alert: exception.message
+    redirect_to new_user_session_path, alert: exception.message
   end
 
 end

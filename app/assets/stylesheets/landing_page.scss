@@ -1,35 +1,35 @@
 #carousel-index {
-	//override container-fluid margins so carousel will stretch to left and right borders
-	margin-left: -15px;
-	margin-right: -15px;
+  //override container-fluid margins so carousel will stretch to left and right borders
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 #carousel-index .center-image {
-	text-align: center; //centers the image
+  text-align: center; //centers the image
 }
 
 #carousel-index h3 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 #carousel-index p {
-	display: inline-block; //makes caption background opacity stick with just the letters
-	padding: 5px 10px;
-	background: rgba(0,0,0,.3); //makes caption easier to read
-	margin-bottom: 10px;
+  display: inline-block; //makes caption background opacity stick with just the letters
+  padding: 5px 10px;
+  background: rgba(0,0,0,.3); //makes caption easier to read
+  margin-bottom: 10px;
 }
 
 #carousel-index a:hover {
-	//by default the background for the controls on hover are black
-	//changed them to none
-	background: none;
+  //by default the background for the controls on hover are black
+  //changed them to none
+  background: none;
 }
 
 //change color of control glyphicons gradually on hover
 #carousel-index span {
-	transition: color 800ms;
-	-webkit-transition: color 800ms;
+  transition: color 800ms;
+  -webkit-transition: color 800ms;
 }
 #carousel-index span:hover {
-	color: white
+  color: white
 }
