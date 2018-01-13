@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
     @comments = @product.comments.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
 
     # 20171222 6.12: Redis & Performance Strategy
-    @product.viewed!
+    # @product.viewed!
 
   end
 
