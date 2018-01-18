@@ -86,7 +86,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # 20171220 6.11: Caching
   config.cache_store = :dalli_store,
                     (ENV["MEMCACHIER_SERVERS"] || "").split(","),
                     {:username => ENV["MEMCACHIER_USERNAME"],
@@ -100,7 +99,6 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-  # 20171224 6.13: Real-Time Updates with ActionCable
   config.web_socket_server_url = "wss://epicedward.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://epicedward.herokuapp.com', 'http://epicedward.herokuapp.com']
 

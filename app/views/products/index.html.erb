@@ -1,34 +1,20 @@
-<!-- http://localhost:3000/products/ -->
-
-
-
 <p id="notice"><%= notice %></p>
-<!-- 20171210 6.8 Security -->
 <% if user_signed_in? && current_user.admin? %>
   <%= link_to 'New Product', new_product_path %>
 <% end %>
 
 <h1>Products</h1>
 
-<!-- 20171022 5.9 Validation & Pagination -->
-<!-- add the pagination links -->
-<!-- this same line can be added to the bottom as well if you want links to show up at the bottom -->
 <div class="apple_pagination">
   <%= will_paginate @products %>
 </div><%# replaced original table with erb %>
 
 <div class="row">
   
-  <!-- 20171220 6.11: Caching -->
   <% cache @products do %>
-  <!-- doesn't work with pagination, displays projects from 1st page only even if you go to 2nd page -->
-  <%# cache(cache_key_for_products) do %>
-
-    <!-- automatically calls partial _product.html.erb -->
     <%= render @products %>
   <% end %>
 
 </div>
-
 
 <br>

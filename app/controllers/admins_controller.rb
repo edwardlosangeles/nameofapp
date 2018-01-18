@@ -1,4 +1,3 @@
-# 20171208 Admin Controller, personal project
 class AdminsController < ApplicationController
   
   before_action :authenticate_user!, :isadmin

@@ -4,7 +4,6 @@ development:
 test:
   adapter: async
 
-# 20171224 6.13: Real-Time Updates with ActionCable
 production:
   adapter: postgresql
   url: postgres://yobmkgvterllwp:1cc393c1d76a0fb7aa265ca7f7b97f17f0d3a837e5e7825e47cd567f87bb81c9@ec2-50-17-217-166.compute-1.amazonaws.com:5432/dah1rjvlopuj7c

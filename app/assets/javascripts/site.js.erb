@@ -1,18 +1,3 @@
-// 20171215 6.10: AJAX
-// the way it was before
-// $(document).on('turbolinks:load', function(){
-//  $('.rating').raty({});
-//  $('.rated').raty({});
-// });
-// $(document).on('turbolinks:load', function(){
-//  $('.img-zoom').elevateZoom({});
-// });
-// now create a reusable function and call function again in
-// $(document).on('turbolinks:load', function(){
-// add ajaxSucess to $(document) function to eliminate having to call refreshRating()
-
-// 20171017 5.8 Comments Controller & Views
-// raty
 var refreshRating = function() {
   $('.rating').raty({
     starHalf: '<%= asset_path 'star-half.png' %>',
@@ -31,27 +16,13 @@ var refreshRating = function() {
   });
 };
 
-//20171213 6.9: JavaScript on Rails
-//elevateZoom
 $(document).on('turbolinks:load ajax:success', function() {
   refreshRating();
-
   $('.img-zoom').elevateZoom({
-    // tint: true,
-    // tintColour: 'black',
-    // tintOpacity: 0.4,
-    // zoomWindowWidth: 700,
-    // zoomWindowHeight: 500,
-    // scrollZoom: true,
-
     zoomType: "inner",
     cursor: "crosshair",
-
-    // lensFadeIn: 500,
-    // lensFadeOut: 500,
     zoomWindowFadeIn: 500,
     zoomWindowFadeOut: 500,
-
     easing: true
   });
 });

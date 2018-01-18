@@ -1,5 +1,3 @@
-# 20171115 6.3 Functional Tests
-
 require 'rails_helper'
 
 describe StaticPagesController, type: :controller do

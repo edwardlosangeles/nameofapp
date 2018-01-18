@@ -22,8 +22,6 @@
 
   <body>
 
-
-   
       <!-- navigation bar -->
       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <nav class="container-fluid">
@@ -39,20 +37,7 @@
               <span class="icon-bar"></span>
             </button>
 
-
-
-            <!-- home button -->
-            
-            <!-- original home button link -->
-            <!-- <a class="homeButton navbar-brand" href="../static_pages/index"> -->
-              <%#= image_tag("misc/home_logo.png", alt:"Brand") %>
-            <!-- </a> -->
-            
-            <!-- ED 20170915 just for 5.1, changed home button to be dynamic -->
-            <!-- no longer a need for homeButton class so that was removed in the stylesheet-->
             <%= link_to image_tag("misc/home_logo.png", alt:"Brand", class: "navbar-brand"), static_pages_index_path %>
-            
-
 
           </nav> <!-- END navbar-header-sm -->
 
@@ -61,15 +46,6 @@
             <!-- navbar links -->
             <ul class="nav navbar-nav navbar-right">
 
-              <!-- Original links-->
-              <!-- <li><a href="../static_pages/index">HOME</a></li> -->              
-              <!-- <li><a href="../static_pages/about">ABOUT</a></li> -->
-              <!-- <li><a href="../static_pages/contact">CONTACT</a></li> -->
-              <!-- <li><a href="../products">PRODUCTS</a></li> -->
-
-              <!-- 20170929 ED 5.4 authentication -->
-              <!-- NEW LOCATION -->
-              <!-- devise login logout buttons -->
               <li>
                 <% if user_signed_in? %><!-- Devise provided this helper -->
                   <%= link_to('Logout ' + current_user.email, destroy_user_session_path, method: :delete) %>
@@ -78,43 +54,21 @@
                 <% end %>
               </li>
 
-              <!-- ED 20170915 just for 5.1, updated navigation bar links to dynamic links -->
-              <!-- dynamic links -->
               <li><%= link_to "HOME", static_pages_index_path %></li>
               <li><%= link_to "ABOUT", static_pages_about_path %></li>
               <li><%= link_to "CONTACT", static_pages_contact_path %></li>
               <li><%= link_to "PRODUCTS", products_path %></li>
               <li><%= link_to "ORDERS", orders_path %></li>
 
-              <!-- 20171208 Admin Controller, personal project -->
               <li>
                 <% if user_signed_in? && current_user.admin? %><!-- Devise provided this helper -->
                   <%= link_to "ADMIN", admins_index_path %>
                 <% end %>
               </li> 
 
-              <!-- ED 20170918 search form -->
-              <!-- original without bootstrap -->
-              <!-- <li> -->
-                <%#= form_with(url: products_path, method: 'get', local: true) do |form| %>
-                  <%#= form.label :q, 'Search for:' %> <!-- to style: .navbar-collapse label {} -->
-                  <%#= form.text_field :q, id: 'q', value: params[:q] %>
-                  <%#= form.submit 'Search' %>
-                <%# end %>
-              <!-- </li> -->
-              <!-- with bootstrap -->
               <li>
-                <!-- contents in search box should show up in URL -->
-                <!-- reason it wasn't is because 'local: true' missing in instructions -->
                 <%= form_with(url: products_path, method: 'get', local: true, class: "navbar-form navbar-right") do |form| %>
                   <div class="form-group">
-                    <!-- for some reason value: params[:q] can be value: params[:whatever] -->
-                    <!--  but form.text_field :q must be :q -->
-                    <!--   because index action of products controller refers to it -->
-                    <!--    if params[:q] -->
-                    <!--  form.text_field :q can be form.text_field :asdf -->
-                    <!--   but index action products controller must change the parameter -->
-                    <!--    if params[:asdf] -->
                     <%= form.text_field :q, id: 'q', value: params[:q], class: "form-control", placeholder: "Product Search" %>
                   </div>
                   <%= form.submit 'Search', class: "btn btn-default" %>
@@ -124,91 +78,27 @@
               <!-- add remaining links here -->
 
             </ul>
-            
-            <!-- 20170929 ED 5.4 authentication -->
-            <!-- ORIGINAL LOCATION -->
-            <!-- devise login logout buttons -->
-            <!-- <ul class="nav pull-right"> -->
-              <!-- <li> -->
-                <%# if user_signed_in? %><!-- Devise provided this helper -->
-                  <%#= link_to('Logout ' + current_user.email, destroy_user_session_path, method: :delete) %>
-                <%# else %>
-                  <%#= link_to('Login', new_user_session_path) %>
-                <%# end %>
-              <!-- </li>               -->
-            <!-- </ul> -->
-
           </nav> <!-- END navbar-collapse -->
-          
         </nav> <!-- END container-fluid -->
       </nav> <!-- END navbar -->
 
-      
       <div class="anchor">
-        <!-- 20170929 ED 5.4 authentication -->
-        <!-- add line(s) manually after: $ rails g devise:install -->
-        <!-- <p class="notice"><%= notice %></p> -->
-        <!-- <p class="alert"><%= alert %></p> -->
-
-        <!-- 20171005 ED 5.5 Authorization -->
-        <!-- add bootstrap to alerts and notices -->
         <% if notice %>
           <p class="notice alert-info" role="alert"><%= notice %></p>
         <% end %>
-
-        <!-- fadeOut works if you're logged in and go to -->
-        <!-- http://localhost:3000/sign_up in the browser -->
-        <!-- or if you enter an invalid password when you try to log in -->
-        <!-- but don't know why it doesn't work if you're logged in and go to -->
-        <!-- http://localhost:3000/users -->
-        <!-- and try to edit another user -->
         <% if alert %>
           <p class="alert alert-warning" role="alert"><%= alert %></p>
         <% end %>
 
-
         <div class="container-fluid">
-
-          <!-- content from each page goes here -->
           <%= yield %>
-
         </div> <!-- container-fluid -->
         
       </div> <!-- anchor -->
 
-
-    <!-- sticky footer -->
-    <!-- NOTE: generating a scaffold messed up original sticky footer -->
-    <!-- made the following modifications
-          only difference after modifications is sticky footer now always shown: -->
-    <!-- 1. removed this div that encapsulated most of body (sans <footer>) 
-          <div class="page-wrap"> -->
-    <!-- 2. moved margin: 0; from *{} to body selector -->
-    <!-- 3. removed height: 100%; from body selector-->
-    <!-- 4. added the following to .site-footer:
-          bottom: 0; position: fixed; width: 100% height: 50px; -->
-    <!-- 5. removed the following 3:
-          .page-wrap {
-            min-height: 100%;
-            margin-bottom: -50px;
-          }
-          .page-wrap:after {
-            content: "";
-            display: block;
-          }
-          .site-footer, .page-wrap:after{
-            height: 50px;
-          } -->
-    <!-- 6. added footer-anchor div and class with height: 50px 
-          this ensures that footer won't cover up body content's bottom 50px -->
     <div class="footer-anchor"></div> <!-- sticky footer -->
-    <footer class="container-fluid site-footer"> <!-- sticky footer -->
-     
+    <footer class="container-fluid site-footer"> <!-- sticky footer -->     
        &copy; 2017 Bike Berlin
-     
     </footer>
-
-
-
   </body>
 </html>

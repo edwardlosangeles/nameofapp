@@ -1,5 +1,3 @@
-# 20171120 6.4 Generating Test Data
-
 FactoryBot.define do
   
   sequence(:email) { |n| "testuser#{n}@example.com" }
@@ -19,6 +17,5 @@ FactoryBot.define do
     last_name "user"
     admin true
   end
-
 
 end

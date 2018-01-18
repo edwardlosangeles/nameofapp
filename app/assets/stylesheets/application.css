@@ -14,8 +14,6 @@
  *= require_self
  */
 
-
-
 /***********************************************************************************************
 GLOBAL
 ***********************************************************************************************/
@@ -25,84 +23,49 @@ h1 {
   color: orange;
   text-align: center;
 }
-
 *{
   box-sizing: border-box;
 }
-
 html, body {  
   margin: 0; //sticky-footer
 }
-
 
 /***********************************************************************************************
 NAVBAR
 ***********************************************************************************************/
 
-/*ED 20170915 just for 5.1, homeButton class no longer needed
-.homeButton img {
-  max-height: 100%;
-}
-*/
-
 .navbar-collapse .nav li a:hover {
   color: white;
 }
-
 .navbar-collapse a {
   transition: color 800ms;
   -webkit-transition: color 800ms;
 }
-
-
-
-
-/***********************************************************************************************
-OTHERS
-***********************************************************************************************/
-
-
 .anchor{
-  /*height of navbar*/
-  /*makes sure tops of pages are not covered by navbar*/
-  
   padding-top: 50px;
 }
-
-
- /*20171005 ED 5.5 Authorization*/
- /*for some reason alert and notice classes contain a bottom margin*/
 .alert, .notice{
   margin: 0px;
 }
-
-
 
 /***********************************************************************************************
 FOOTER
 ***********************************************************************************************/
 
-/*sticky-footer*/
 .site-footer {
   background: #101010;  
   color: #9d9d9d;
-
   bottom: 0;
   position: fixed;
   width: 100%;
   height: 50px;
 }
-
-/*sticky-footer*/
 .footer-anchor {
   height:50px;
 }
 
-
 /***********************************************************************************************
 PAGINATION
-<!-- 20171022 5.9 Validation & Pagination -->
-<!-- styling for pagination links, Apple -->
 ***********************************************************************************************/
 .apple_pagination {
   background: #f1f1f1;

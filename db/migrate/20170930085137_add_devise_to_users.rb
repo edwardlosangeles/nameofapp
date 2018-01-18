@@ -1,6 +1,3 @@
-# 20170929 ED 5.4 authentication
-# $ rails g devise User
-
 class AddDeviseToUsers < ActiveRecord::Migration[5.1]
   def self.up
     change_table :users do |t|

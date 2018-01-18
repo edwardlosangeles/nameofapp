@@ -7,8 +7,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
-# 20171115 6.3 Functional Tests
-# note: require 'devise' after require 'rspec/rails'
 require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -59,8 +57,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  # 20171115 6.3 Functional Tests
-  # For Devise >= 4.1.0
   config.include Devise::Test::ControllerHelpers, :type => :controller
 
 end

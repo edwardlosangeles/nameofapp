@@ -1,21 +1,12 @@
-# 20170929 ED 5.4 authentication
-# $ rails generate scaffold user first_name last_name
-
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  # 20171005 ED 5.5 Authorization
-  # make sure user signed in before trying to access users_controller
   before_action :authenticate_user!, except: [:show, :index]
-  # makes sure users are authorized to perform actions
-  # placed at the top of controller so it can be applied to all actions within
   load_and_authorize_resource
 
   # GET /users
   # GET /users.json
   def index
 
-    #20171210 6.8 Security
     if signed_in? && current_user.admin?
       @users = User.all
     else
@@ -84,7 +75,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:first_name, :last_name)
     end

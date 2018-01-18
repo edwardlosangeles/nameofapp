@@ -1,6 +1,3 @@
-# 20171129 6.6: Creating Payments
-# $ rails generate controller payments
-
 class PaymentsController < ApplicationController
 
   before_action :authenticate_user!

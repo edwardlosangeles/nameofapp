@@ -1,8 +1,6 @@
-# 20171224 6.13: Real-Time Updates with ActionCable
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
 
-    # 20171228 6.14: ActiveJob and Advanced ActionCable
     identified_by :current_user
 
     def connect

@@ -4,7 +4,6 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
-# 20170921 ED 5.3 Sending Emails
 # for SendGrid plugin on Heroku
 ActionMailer::Base.smtp_settings = {
   address: 'smtp.sendgrid.net',

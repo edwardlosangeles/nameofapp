@@ -1,12 +1,6 @@
-<!-- eg http://localhost:3000/products/10/edit -->
-
-
 <h1>Editing Product</h1>
 
-<!-- ED 20170918 search form -->
-<!-- added button_name: for bootstrap, change text on button between new and edit -->
 <%= render 'form', product: @product, button_name: 'Update Product' %>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>
-

@@ -1,20 +1,15 @@
-<!-- 20171017 5.8 Comments Controller & Views -->
-
 <% if signed_in? %>
   <h4>Add a review:</h4>
   
-  <!-- #20171215 6.10: AJAX -->
   <%= form_for([@product, @product.comments.build], remote: true) do |f| %>
     <p>
       <%= f.label :body, "Comments" %><br>
       <%= f.text_area :body %>
     </p>
 
-    <!-- raty -->
     <p>
       <div class="rating"></div>
     </p>
-
 
     <p>
       <%= f.submit "Submit" %>

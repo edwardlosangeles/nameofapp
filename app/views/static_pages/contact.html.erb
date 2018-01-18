@@ -1,14 +1,7 @@
-<!-- http://localhost:3000/static_pages/contact -->
-
-
-
 <h1>Contact Us</h1>
 
-<!-- 20170921 ED 5.3 Sending Emails -->
 <%= flash[:notice] %>
 
-<!-- for some reason pages don't render and you don't get error messages without local: true -->
-<!--  which isn't in instructions -->
 <%= form_with(url: "/static_pages/thank_you", local: true) do |form| %> <!-- method is post by default -->
   <div class="row">
     <div class="col-md-4">
@@ -27,7 +20,4 @@
     </div><!-- col-md-4 -->
   </div> <!-- row -->
   <%= form.submit "Send" %>
-  <!-- config/routes.rb post 'static_pages/thank_you' -->
-  <!-- send form data to app/controllers/static_pages_controller.rb(action: thank_you) -->
 <% end %> <!-- form_with -->
-
