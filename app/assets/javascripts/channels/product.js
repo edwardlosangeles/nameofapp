@@ -1,4 +1,3 @@
-// 20171224 6.13: Real-Time Updates with ActionCable
 App.product = App.cable.subscriptions.create("ProductChannel", {
   connected: function() {
     // Called when the subscription is ready for use on the server
