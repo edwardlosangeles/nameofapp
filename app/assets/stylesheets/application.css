@@ -20,13 +20,13 @@ GLOBAL
 
 h1 {
   font-family: Futura, Helvetica, Arial, sans-serif;
-  color: orange;
+  color: darkorange;
   text-align: center;
 }
 *{
   box-sizing: border-box;
 }
-html, body {  
+html, body {
   margin: 0; //sticky-footer
 }
 
@@ -53,7 +53,7 @@ FOOTER
 ***********************************************************************************************/
 
 .site-footer {
-  background: #101010;  
+  background: #101010;
   color: #9d9d9d;
   bottom: 0;
   position: fixed;
@@ -72,7 +72,7 @@ PAGINATION
   border: 1px solid #e5e5e5;
   text-align: center;
   padding: 1em;
-  cursor: default; 
+  cursor: default;
 }
 .apple_pagination a, .apple_pagination span {
   padding: 0.2em 0.3em;
